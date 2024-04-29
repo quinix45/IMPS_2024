@@ -538,20 +538,26 @@ What about <strong>1PL</strong> and <strong>2PL</strong> models?
 <section id="what-to-do-about-small-sample-sizes" class="slide level2">
 <h2>What to do about Small Sample Sizes?</h2>
 <p>Although the NLL and CLL may approximate more complex models, complex IRFs remain hard to approximate in small sample sizes (<span class="math inline">\(N \leq 250\)</span>) with a single model.</p>
+<p><br></p>
 <center>
 Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </center>
 <p><br></p>
+<p><strong>Model averaging</strong> takes into account model uncertainty by weighting model predictions according to their relative plausibility.</p>
+<p>The core of <strong>BMA</strong> is the <em>expected log pointwise predictive density</em>, <span class="math inline">\(ELPD = \sum log(p(y_i |y_{-i}, M_k))\)</span>, which is an approximation of leave-one-out cross validation (<span class="math inline">\(LOO_{CV}\)</span>).</p>
+<p><br></p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<center>
-<strong>Model selection (MS)</strong>
-</center>
+<p><strong>Two type of weights:</strong></p>
+<ul>
+<li><p>BMA weights with Bayesian bootstrapping (BMA+)</p></li>
+<li><p>Stacking weights</p></li>
+</ul>
 </div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <center>
-<strong>Model Averaging</strong>
+<strong>Idea 1:</strong> How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT.
 </center>
 </div>
 </div>
@@ -559,19 +565,28 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </section>
 <section id="averaging-predicted-probability-the-scale-of-theta" class="slide level2">
 <h2>Averaging Predicted Probability: The Scale of <span class="math inline">\(\theta\)</span></h2>
-<p>It is probably untenable to average item/person parameters across models. It seems more sensible to average <span class="math inline">\(P(Y = 1 | \theta)\)</span>, the predicted probability of a correct response, across models.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<center>
-<strong>Model selection (MS)</strong>
-</center>
-</div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<center>
+<strong>Ideal Scenario</strong>
+</center>
+<p>Ultimately, one would like to get the best possible estimate of <span class="math inline">\(P(Y = 1|\theta)\)</span></p>
 <p><img data-src="images/avg_plot.png"></p>
 </div>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<center>
+<strong>Reality</strong>
+</center>
+<p>However, the same person will get a different <span class="math inline">\(\theta\)</span> depending on the model that is fit to the data.</p>
+<p><br> <br> <br></p>
+<p><img data-src="images/theta_plot.png"></p>
 </div>
 </div>
+</div>
+</section>
+<section id="empirical-and-theoretical-quantiles-of-theta" class="slide level2">
+<h2>Empirical and Theoretical Quantiles of <span class="math inline">\(\theta\)</span></h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>IMPS 2024</p>

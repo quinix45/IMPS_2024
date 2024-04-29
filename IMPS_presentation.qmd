@@ -391,52 +391,79 @@ $$ P(Y = 1| \theta) =  \exp[-\exp[-a(\theta - b)]]$$
 
 Although the NLL and CLL may approximate more complex models, complex IRFs remain hard to approximate in small sample sizes ($N \leq 250$) with a single model.
 
+</br>
 
 <center> Can we do better with **Bayesian model averaging (BMA)**? </center>
 
 </br>
 
+**Model averaging** takes into account model uncertainty by weighting model predictions according to their relative plausibility.
+
+The core of **BMA** is the *expected log pointwise predictive density*, $ELPD = \sum log(p(y_i |y_{-i}, M_k))$, which is an approximation of leave-one-out cross validation ($LOO_{CV}$).
+
+</br>
 
 ::: {layout-ncol="2"}
 
+:::col
+
+**Two type of weights:**
+
+- BMA weights with Bayesian bootstrapping (BMA+)
+
+- Stacking weights
+
+:::
 
 :::col
-<center> **Model selection (MS)** </center>
 
 
-:::
 
-
-:::col
-<center> **Model Averaging** </center>
+<center>
+**Idea 1:** How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT. 
+</center>
 
 
 :::
 :::
-
 
 ## Averaging Predicted Probability: The Scale of $\theta$ 
 
-It is probably untenable to average item/person parameters across models. It seems more sensible to average $P(Y = 1 | \theta)$, the predicted probability of a correct response, across models.
-
-
-
 ::: {layout-ncol="2"}
 
 
 :::col
-<center> **Model selection (MS)** </center>
+<center> **Ideal Scenario** </center>
 
+Ultimately, one would like to get the best possible estimate of $P(Y = 1|\theta)$
 
-:::
-
-
-:::col
 ![](images/avg_plot.png)
 
 
 :::
+
+:::col
+<center> **Reality** </center>
+
+However, the same person will get a different $\theta$ depending on the model that is fit to the data. 
+
+</br>
+</br>
+</br>
+
+![](images/theta_plot.png)
+
+
 :::
+:::
+
+
+## Empirical and Theoretical Quantiles of $\theta$ 
+
+
+
+
+
 
 
 
