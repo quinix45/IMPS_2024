@@ -1,0 +1,471 @@
+---
+title: "Bayesian Model Averaging of (a)symmetric IRT Models in Small Samples"
+title-slide-attributes:
+  
+   data-background-image: images/
+   data-background-size: 83%
+   data-background-opacity: 100%
+
+author: "Fabio Setti & Leah Feuerstahler"
+format:
+   revealjs:
+      footer: "IMPS 2024"
+      chalkboard: true 
+      theme: Theme/IMPS_2024_theme.scss
+      navigation-mode: linear
+      controls: false
+      slide-number: c 
+      width: 1280
+      height: 720
+      transition-speed: slow
+      css: Style.css
+      
+  
+editor: source
+---
+
+
+## Item Response Theory
+
+**Item response theory (IRT)** is a branch of psychometrics that models how both **person** and **item** characteristics influence the probability of discrete responses to item.   
+
+- **Item parameter:** characteristics of the item itself ($i$).
+
+- **Person parameter:** Some latent trait ($\theta$) varying across individuals ($j$).
+
+
+
+::: {layout-ncol="2"}
+
+:::col
+
+</br>
+
+</br>
+For example, the 2 parameter logistic model (2PL): 
+
+
+$$P(Y^j_{i} = 1| \theta_j, a_i, b_i) =  \frac{\exp[a_i(\theta_j - b_i)]}{1 + \exp[a_i(\theta_j - b_i)]}$$
+</br>
+
+<center>
+$a$ = discrimination
+
+$b$ = difficulty
+
+$\theta$ = latent trait
+
+</center>
+
+:::
+
+:::col
+
+</br>
+</br>
+
+
+![](images/two_pl.png)
+
+:::
+:::
+
+
+## Adding parameters
+
+::: {.panel-tabset}
+
+## 1PL
+
+
+::: {layout-ncol="2"}
+
+:::col
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<center>
+
+$$P(Y = 1| \theta, b) =  \frac{\exp[(\theta - b)]}{1 + \exp[(\theta - b)]}$$
+
+
+$\theta$ = latent trait
+
+$b$ = difficulty
+
+</center>
+
+:::
+
+
+
+:::col
+
+</br>
+</br>
+</br>
+
+
+![](images/one_pl.png)
+
+:::
+:::
+
+## 2PL
+
+
+::: {layout-ncol="2"}
+
+:::col
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<center>
+
+$$P(Y = 1| \theta, b, a) =  \frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}$$
+
+$\theta$ = latent trait
+
+$b$ = difficulty
+
+$a$ =  discrimination
+
+</center>
+
+:::
+
+
+
+:::col
+
+</br>
+</br>
+</br>
+
+
+![](images/two_pl.png)
+
+:::
+:::
+
+
+## 3PL
+
+
+
+::: {layout-ncol="2"}
+
+:::col
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<center>
+
+$$P(Y = 1| \theta, b, a, c) =  c + (1-c) \frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}$$
+
+$\theta$ = latent trait
+
+$b$ = difficulty
+
+$a$ =  discrimination
+
+$c$ = guessing
+
+</center>
+
+:::
+
+
+
+:::col
+
+</br>
+</br>
+</br>
+
+
+![](images/three_pl.png)
+
+:::
+:::
+
+
+
+
+## 4PL
+
+::: {layout-ncol="2"}
+
+:::col
+
+
+</br>
+</br>
+</br>
+</br>
+
+
+<center>
+
+$$P(Y = 1| \theta, b, a, c, d) =  c + (d-c) \frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}$$
+
+$\theta$ = latent trait
+
+$b$ = difficulty
+
+$a$ = discrimination
+
+$c$ = guessing
+
+$d$ = slipping
+
+</center>
+
+:::
+
+
+
+:::col
+
+</br>
+</br>
+</br>
+
+
+![](images/four_pl.png)
+
+:::
+:::
+:::
+
+## Estimation and Sample Size 
+
+The more item parameters are added to the model, the more flexible the item response functions (IRF).
+
+
+However, the additional parameters of the **3PL** and **4PL** tend to require large sample sizes ($N \geq 1000$) to be stably estimated.
+
+</br>
+
+<center>  What about **1PL** and **2PL** models? </center>
+
+</br>
+
+
+::: {layout-ncol="2"}
+
+:::col
+
+<center> **Maximum Likelihood** </center>
+
+</br>
+
+<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i></i> 1PL models seem to be stably estimable with sample sizes as low as $N = 100$ (Finch & French, 2019).
+
+
+</br>
+
+<i class="fa fa-solid fa-thumbs-down" style="color: #9B3922;"></i> 2PL models seems to require a sample size of $N = 200$ or more (Drasgow, 1989; Liu & Yang, 2018).
+
+:::
+
+
+:::col
+<center> **Markov Chain Monte Carlo** </center>
+
+
+</br>
+
+<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i></i> 1PL models showed good coverage when $N = 100$ and generally outperformed maximum likelihood (Finch & French, 2019).
+
+
+</br>
+
+<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models   of $N = 100$ or more (Drasgow, 1989; Liu & Yang, 2018).
+
+:::
+:::
+
+
+
+
+<style>
+.vl {
+  border-left: 3px solid #9B3922;
+  height: 400px;
+  position: absolute;
+  left: 49%;
+  margin-left: 10px;
+  top: 43%;
+}
+</style>
+
+<div class="vl"></div>
+
+
+
+## Asymmetric IRT Models
+
+::: {layout-ncol="2"}
+
+:::col
+
+All the IRT models presented so far generate IRFs that are symmetric **symmetric**.
+
+</br>
+</br>
+
+![](images/symmetric_irf.png)
+
+
+:::
+
+:::col
+
+Samejima (2000) was the first scholar to propose the use **asymmetric** IRT with her logistic positive exponent (LPE) model.
+
+
+</br>
+
+![](images/asymmetric_irf.png)
+
+
+:::
+:::
+
+
+## Simple Asymmetric IRT Models
+
+The LPE has shown to have some identification issues in simulation studies (Lee & Bolt, 2018), especially in small sample sizes. Two recently proposed asymmetric IRT models (Shim et al., 2023) may help address this issue:
+
+::: {layout-ncol="2"}
+
+:::col
+<center> 
+
+**Complementary Log-Log (CLL)**
+
+$$ P(Y = 1| \theta) = 1 - \exp[-\exp[a(\theta - b)]]$$
+
+
+![](images/CLL_vs_3pl.png)
+
+</center>
+
+:::
+
+
+
+
+:::col
+<center> 
+
+**Negative Log-Log (NLL)**
+
+$$ P(Y = 1| \theta) =  \exp[-\exp[-a(\theta - b)]]$$
+![](images/CLL_vs_3plU.png)
+
+
+</center>
+:::
+
+:::
+
+
+## What to do about Small Sample Sizes? 
+
+Although the NLL and CLL may approximate more complex models, complex IRFs remain hard to approximate in small sample sizes ($N \leq 250$) with a single model.
+
+
+<center> Can we do better with **Bayesian model averaging (BMA)**? </center>
+
+</br>
+
+
+::: {layout-ncol="2"}
+
+
+:::col
+<center> **Model selection (MS)** </center>
+
+
+:::
+
+
+:::col
+<center> **Model Averaging** </center>
+
+
+:::
+:::
+
+
+## Averaging Predicted Probability: The Scale of $\theta$ 
+
+It is probably untenable to average item/person parameters across models. It seems more sensible to average $P(Y = 1 | \theta)$, the predicted probability of a correct response, across models.
+
+
+
+::: {layout-ncol="2"}
+
+
+:::col
+<center> **Model selection (MS)** </center>
+
+
+:::
+
+
+:::col
+![](images/avg_plot.png)
+
+
+:::
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

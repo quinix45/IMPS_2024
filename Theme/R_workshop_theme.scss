@@ -1,0 +1,183 @@
+/*-- scss:defaults --*/
+
+// fonts
+
+$font-family-sans-serif: "Optima", 
+                          sans-serif;
+
+$font-family-heading: "Arial", 
+                       sans-serif 
+                       !important;
+
+
+
+$presentation-font-size-root:	28px;
+
+// colors
+$body-bg:#fafafa !default;
+$body-color: #000 !default;
+$link-color: #996633 !default;
+$selection-bg: #26351c;
+
+// headings
+$presentation-heading-font-weight: 100 !important;
+  
+  
+// title 
+
+$presentation-h1-font-size: 1.8em !default;
+
+
+/*-- scss:rules --*/
+
+
+
+// extra font size
+
+.reveal a {
+  line-height: 1.3em;
+}
+
+// title slide
+
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+  font-size: 22px;
+}
+
+
+// logo
+
+.reveal .slide-logo {
+  height: 3.5em !important;
+  width: 3.5em!important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+.title-slide .logo {
+  visibility: hidden !important;
+}
+
+
+// author
+
+.author {
+font-family: $font-family-sans-serif;
+font-size: 35px !important;
+font-weight: 500 !important;
+}
+
+
+// date: 
+.date {
+font-family: $font-family-sans-serif;
+font-size: 30px !important;
+font-weight: 500 !important;
+}
+
+
+
+// footer
+
+.reveal .footer {
+  font-family: $font-family-heading;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #996633 !important;
+// opacity: .5;
+//  color: #FFFFFF !important;
+//  display: inline-block ;
+//  width: 10px;
+//  height: 10px;
+//  padding: 5px;
+//  border: 1px solid blue;
+//  background-color: #6971E0;
+}
+
+
+// slide number
+
+
+.reveal .slide-number{
+  font-family: $font-family-heading;
+  font-size: 16px !important;
+  color: #996633;
+  font-weight: 600 !important;
+  
+}
+
+// headings
+
+.reveal h1, 
+.reveal h2, 
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6{
+  margin: 0 0 20px 0;
+  color: 	#996633;
+  font-family: $font-family-heading;
+  line-height: 0.9em;
+  letter-spacing: 0.04em;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-shadow: none; 
+}
+
+
+
+.slide-background {
+  //background-color: #447099 !important;
+  background-image: url('corner_shape.png'); 
+  background-position: 117% 140%;
+  background-size: 20.5% auto ;
+  background-repeat: no-repeat;
+} 
+
+// default values for variables
+
+// $font-family-sans-serif:	“Source Sans Pro”, Helvetica, sans-serif
+// $font-family-monospace:	monospace
+// $presentation-font-size-root:	40px
+// $presentation-font-smaller:	0.7
+// $presentation-line-height:	1.3
+// $body-bg:	#fff
+// $body-color:	#222
+// $text-muted:	lighten($body-color, 50%)
+// $link-color:	#2a76dd
+// $link-color-hover:	lighten($link-color, 15%)
+// $selection-bg:	lighten($link-color, 25%)
+// $selection-color:	$body-bg
+// $border-color:	lighten($body-color, 30%)
+// $border-width:	1px
+// $border-radius:	3px
+// $presentation-heading-font:	$font-family-sans-serif
+// $presentation-heading-color:	$body-color
+// $presentation-heading-line-height:	1.2
+// $presentation-heading-letter-spacing:	normal
+// $presentation-heading-text-transform:	none
+// $presentation-heading-text-shadow:	none
+// $presentation-h1-text-shadow:	none
+// $presentation-heading-font-weight:	600
+// $presentation-h1-font-size:	2.5em
+// $presentation-h2-font-size:	1.6em
+// $presentation-h3-font-size:	1.3em
+// $presentation-h4-font-size:	1em
+// $presentation-block-margin:	12px
+// $presentation-slide-text-align:	left
+// $presentation-title-slide-text-align:	center
+// $code-block-bg:	$body-bg
+// $code-block-border-color:	lighten($body-color, 60%)
+// $code-block-font-size:	0.55em
+// $code-color:	var(–quarto-hl-fu-color)
+// $code-bg:	transparent
+// $tabset-border-color:	$code-block-border-color
+// $light-bg-text-color:	#222
+// $light-bg-link-color:	#2a76dd
+// $light-bg-code-color:	#4758ab
+// $dark-bg-text-color: 	#fff
+// $dark-bg-link-color:	 #42affa
+// $dark-bg-code-color:	 #ffa07a
