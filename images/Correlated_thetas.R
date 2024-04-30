@@ -30,11 +30,9 @@ fit_3pl <- mirt(dat,
                 technical = list(NCYCLES = 5000))
 
 
-dat <- data.frame(theta_2pl = fscores(fit_2pl), 
-                  theta_3pl = fscores(fit_3pl))
+dat <- data.frame("theta_2pl" = fscores(fit_2pl), 
+                  "theta_3pl" = fscores(fit_3pl))
 
-plot(theta_2pl,
-    theta_3pl)
 
 theta_plot <- ggplot(dat, aes(x = theta_2pl, y = theta_3pl)) +
               geom_point() +
@@ -54,3 +52,17 @@ print(theta_plot)
 ggsave("theta_plot.png", 
        theta_plot,
        width = 7, height = 4.5, dpi = 300, units = "in")
+
+
+
+
+
+
+
+
+
+
+
+
+
+

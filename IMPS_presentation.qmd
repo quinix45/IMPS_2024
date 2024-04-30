@@ -420,7 +420,7 @@ The core of **BMA** is the *expected log pointwise predictive density*, $ELPD = 
 
 
 <center>
-**Idea 1:** How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT. 
+**Idea:** How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT? 
 </center>
 
 
@@ -435,8 +435,7 @@ The core of **BMA** is the *expected log pointwise predictive density*, $ELPD = 
 :::col
 <center> **Ideal Scenario** </center>
 
-Ultimately, one would like to get the best possible estimate of $P(Y = 1|\theta)$
-
+Ultimately, one would like to get the best possible estimate of $P(Y = 1|\theta)$ by averaging along the $\theta$ continuum.
 ![](images/avg_plot.png)
 
 
@@ -449,7 +448,6 @@ However, the same person will get a different $\theta$ depending on the model th
 
 </br>
 </br>
-</br>
 
 ![](images/theta_plot.png)
 
@@ -460,6 +458,93 @@ However, the same person will get a different $\theta$ depending on the model th
 
 ## Empirical and Theoretical Quantiles of $\theta$ 
 
+Although the same person may be assigned a different $\theta$ depending on the model, the **relative rank** of participants should be scale invariant.
+
+
+This means that instead of averaging IRFs at the same $\theta$ values, it should be more sound to average the IRFs at the same $\theta$ **quantile**. 
+
+
+These quantiles will be estimated empirically for each of the models to be averaged. Thus, the averaged probability of a keyed response at each **empirical quantile** will be 
+
+$$\overline{IRF}_{q} = \sum_{1}^{m} W_{m}P_{m}(\theta_{mq})$$
+here $q$ represents a specific quantile, $m$ represents one of the candidate models, and $W$ represents the weight assigned to each model.
+
+</br>
+
+Form comparison, IRFs will also be averaged at **theoretical quantiles** of the standard normal distribution.
+
+# {}
+
+- Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, CLL, NLL) to recover complex IRFs in **small sample sizes**?
+
+- Which method among **BMA**, model selection (**MS**), and kernel smoothing IRT (**KS**) will produce better IRF recovery?
+
+- Will averaging at **empirical $\theta$ quantiles** achieve better IRF recovery than averaging at **theoretical $\theta$ quantiles**?
+
+- How will **stacking weights** and **BMA+** weights behave? 
+
+## Simulation: Data Generation
+
+Most data generating conditions were designed to be "realistic", where the true data generating model is not included in the set of candidate models. There were **4 data generating conditions**:
+
+::: {layout-ncol="2"}
+
+:::col
+</br>
+</br>
+
+- **2PL:** $\frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}$
+
+</br>
+</br>
+
+- **2MPL:** $\frac{1}{1 +\exp[-(a_{1}\theta_{1} + a_{2}\theta_{2} + d)]}$
+
+</br>
+</br>
+
+ 
+- **GLL~ua~** and **GLL~la~** (Zhang et al., 2023)
+
+
+
+
+
+:::
+
+
+
+:::col
+
+
+
+::: r-stack
+
+
+::: {.fragment .fade-in-then-out fragment-index="1"}
+</br>
+
+![](images/Stukel_fig.png)
+:::
+
+::: {.fragment .fade-in fragment-index="2"}
+
+
+
+</br>
+
+<center> **Parameters Generating Distributions** </center>
+
+![](images/Tab_datagen.png)
+
+:::
+
+:::
+
+
+
+:::
+:::
 
 
 

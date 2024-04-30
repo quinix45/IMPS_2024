@@ -557,7 +557,7 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <center>
-<strong>Idea 1:</strong> How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT.
+<strong>Idea:</strong> How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT?
 </center>
 </div>
 </div>
@@ -567,19 +567,18 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 <h2>Averaging Predicted Probability: The Scale of <span class="math inline">\(\theta\)</span></h2>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <center>
 <strong>Ideal Scenario</strong>
 </center>
-<p>Ultimately, one would like to get the best possible estimate of <span class="math inline">\(P(Y = 1|\theta)\)</span></p>
-<p><img data-src="images/avg_plot.png"></p>
+<p>Ultimately, one would like to get the best possible estimate of <span class="math inline">\(P(Y = 1|\theta)\)</span> by averaging along the <span class="math inline">\(\theta\)</span> continuum. <img data-src="images/avg_plot.png"></p>
 </div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <center>
 <strong>Reality</strong>
 </center>
 <p>However, the same person will get a different <span class="math inline">\(\theta\)</span> depending on the model that is fit to the data.</p>
-<p><br> <br> <br></p>
+<p><br> <br></p>
 <p><img data-src="images/theta_plot.png"></p>
 </div>
 </div>
@@ -587,12 +586,65 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </section>
 <section id="empirical-and-theoretical-quantiles-of-theta" class="slide level2">
 <h2>Empirical and Theoretical Quantiles of <span class="math inline">\(\theta\)</span></h2>
+<p>Although the same person may be assigned a different <span class="math inline">\(\theta\)</span> depending on the model, the <strong>relative rank</strong> of participants should be scale invariant.</p>
+<p>This means that instead of averaging IRFs at the same <span class="math inline">\(\theta\)</span> values, it should be more sound to average the IRFs at the same <span class="math inline">\(\theta\)</span> <strong>quantile</strong>.</p>
+<p>These quantiles will be estimated empirically for each of the models to be averaged. Thus, the averaged probability of a keyed response at each <strong>empirical quantile</strong> will be</p>
+<p><span class="math display">\[\overline{IRF}_{q} = \sum_{1}^{m} W_{m}P_{m}(\theta_{mq})\]</span> here <span class="math inline">\(q\)</span> represents a specific quantile, <span class="math inline">\(m\)</span> represents one of the candidate models, and <span class="math inline">\(W\)</span> represents the weight assigned to each model.</p>
+<p><br></p>
+<p>Form comparison, IRFs will also be averaged at <strong>theoretical quantiles</strong> of the standard normal distribution.</p>
+</section>
+<section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+<ul>
+<li><p>Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, CLL, NLL) to recover complex IRFs in <strong>small sample sizes</strong>?</p></li>
+<li><p>Which method among <strong>BMA</strong>, model selection (<strong>MS</strong>), and kernel smoothing IRT (<strong>KS</strong>) will produce better IRF recovery?</p></li>
+<li><p>Will averaging at <strong>empirical <span class="math inline">\(\theta\)</span> quantiles</strong> achieve better IRF recovery than averaging at <strong>theoretical <span class="math inline">\(\theta\)</span> quantiles</strong>?</p></li>
+<li><p>How will <strong>stacking weights</strong> and <strong>BMA+</strong> weights behave?</p></li>
+</ul>
+</section>
+<section id="simulation-data-generation" class="slide level2">
+<h2>Simulation: Data Generation</h2>
+<p>Most data generating conditions were designed to be “realistic”, where the true data generating model is not included in the set of candidate models. There were <strong>4 data generating conditions</strong>:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><br> <br></p>
+<ul>
+<li><strong>2PL:</strong> <span class="math inline">\(\frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}\)</span></li>
+</ul>
+<p><br> <br></p>
+<ul>
+<li><strong>2MPL:</strong> <span class="math inline">\(\frac{1}{1 +\exp[-(a_{1}\theta_{1} + a_{2}\theta_{2} + d)]}\)</span></li>
+</ul>
+<p><br> <br></p>
+<ul>
+<li><strong>GLL<sub>ua</sub></strong> and <strong>GLL<sub>la</sub></strong> (Zhang et al., 2023)</li>
+</ul>
+</div>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<p><br></p>
+<p><img data-src="images/Stukel_fig.png"></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><br></p>
+<center>
+<strong>Parameters Generating Distributions</strong>
+</center>
+<p><img data-src="images/Tab_datagen.png"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>IMPS 2024</p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
