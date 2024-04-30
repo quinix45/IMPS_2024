@@ -1,0 +1,94 @@
+\documentclass[border={-20pt 28pt 20pt -20pt}]{standalone}
+                   \usepackage{multirow}
+                   \usepackage{geometry}
+                   \usepackage{tabularx}
+                   \usepackage{booktabs}
+                   \usepackage{ragged2e}
+                   \usepackage{float}
+                   \usepackage{array}
+                   \usepackage[dvipsnames]{xcolor}
+                   \definecolor{Mycolor2}{HTML}{f5f3f2}
+                   \begin{document}
+                   \pagecolor{Mycolor2}
+                   \renewcommand{\arraystretch}{1.1} 
+\centering\begingroup\fontsize{9}{11}\selectfont
+
+\begin{tabular}{>{\centering\arraybackslash}p{4.4em}>{\centering\arraybackslash}p{7em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}>{\centering\arraybackslash}p{1.8em}}
+\toprule
+\textbf{condition} & \textbf{Method} & \textbf{Q1} & \textbf{Q2} & \textbf{Q3} & \textbf{Q4} & \textbf{Q5} & \textbf{Q6} & \textbf{Q7} & \textbf{Q8} & \textbf{Q9} & \textbf{Q10} & \textbf{Q11}\\
+\midrule
+ & avg bma+ emp & \textbf{.068} & \textbf{.069} & \textbf{.062} & \textbf{.058} & \textbf{.056} & \textbf{.056} & .056 & \textbf{.056} & \textbf{.058} & \textbf{.064} & \textbf{.072}\\
+
+ & avg bma+ theo & .076 & .07 & \textbf{.062} & \textbf{.058} & .057 & \textbf{.056} & \textbf{.055} & \textbf{.056} & \textbf{.058} & \textbf{.064} & .078\\
+
+ & avg stack emp & .069 & \textbf{.069} & \textbf{.062} & \textbf{.058} & .057 & .057 & .056 & \textbf{.056} & \textbf{.058} & .065 & .073\\
+
+ & avg stack theo & .076 & .07 & \textbf{.062} & \textbf{.058} & .057 & .057 & .056 & \textbf{.056} & \textbf{.058} & \textbf{.064} & .078\\
+
+ & sel bma+ emp & .072 & .07 & \textbf{.062} & \textbf{.058} & .058 & .058 & .058 & .058 & .06 & .066 & .078\\
+
+ & sel bma+ theo & .08 & .071 & \textbf{.062} & .059 & .059 & .059 & .058 & .058 & .06 & .066 & .084\\
+
+ & sel stack emp & .072 & .07 & \textbf{.062} & \textbf{.058} & .058 & .058 & .059 & .059 & .061 & .067 & .078\\
+
+ & sel stack theo & .079 & .071 & .063 & .059 & .059 & .059 & .059 & .059 & .06 & .067 & .085\\
+
+\multirow{-9}{4.4em}{\centering\arraybackslash \textbf{I = 10  N = 100}} & KS & NA & .092 & .079 & .073 & .069 & .069 & .065 & .068 & .077 & .084 & NA\\
+\cmidrule{1-13}
+ & avg bma+ emp & .06 & \textbf{.057} & .053 & \textbf{.049} & .048 & \textbf{.045} & \textbf{.046} & \textbf{.047} & \textbf{.052} & \textbf{.058} & .064\\
+
+ & avg bma+ theo & \textbf{.059} & \textbf{.057} & .053 & .05 & .048 & .046 & .047 & .048 & .053 & \textbf{.058} & .067\\
+
+ & avg stack emp & \textbf{.059} & \textbf{.057} & \textbf{.052} & \textbf{.049} & \textbf{.047} & \textbf{.045} & \textbf{.046} & \textbf{.047} & \textbf{.052} & \textbf{.058} & \textbf{.063}\\
+
+ & avg stack theo & \textbf{.059} & .058 & \textbf{.052} & .05 & .048 & .046 & \textbf{.046} & \textbf{.047} & \textbf{.052} & \textbf{.058} & .066\\
+
+ & sel bma+ emp & .063 & .058 & .054 & .051 & .049 & .048 & .048 & .049 & .053 & .059 & .069\\
+
+ & sel bma+ theo & .065 & .059 & .053 & .052 & .051 & .05 & .049 & .049 & .054 & .059 & .072\\
+
+ & sel stack emp & .065 & .059 & .053 & .051 & .049 & .047 & .048 & .049 & .053 & .06 & .071\\
+
+ & sel stack theo & .069 & .06 & .053 & .052 & .051 & .049 & .049 & .049 & .053 & .061 & .073\\
+
+\multirow{-9}{4.4em}{\centering\arraybackslash \textbf{I = 10  N = 250}} & KS & NA & .076 & .064 & .061 & .058 & .061 & .062 & .063 & .07 & .083 & NA\\
+\cmidrule{1-13}
+ & avg bma+ emp & \textbf{.064} & \textbf{.065} & \textbf{.059} & \textbf{.056} & \textbf{.054} & \textbf{.054} & \textbf{.056} & \textbf{.057} & \textbf{.059} & \textbf{.063} & \textbf{.062}\\
+
+ & avg bma+ theo & .071 & .066 & .061 & .057 & .055 & \textbf{.054} & .057 & .059 & .06 & \textbf{.063} & .07\\
+
+ & avg stack emp & .065 & \textbf{.065} & .06 & \textbf{.056} & \textbf{.054} & \textbf{.054} & \textbf{.056} & \textbf{.057} & \textbf{.059} & \textbf{.063} & \textbf{.062}\\
+
+ & avg stack theo & .071 & .067 & .061 & .057 & .055 & \textbf{.054} & .057 & .059 & .06 & \textbf{.063} & .071\\
+
+ & sel bma+ emp & .067 & .066 & .06 & \textbf{.056} & .055 & \textbf{.054} & .057 & .058 & .06 & .064 & .063\\
+
+ & sel bma+ theo & .074 & .067 & .061 & .058 & .057 & .056 & .059 & .061 & .061 & \textbf{.063} & .072\\
+
+ & sel stack emp & .069 & .068 & .061 & .057 & .055 & .055 & .057 & .058 & .06 & .065 & .066\\
+
+ & sel stack theo & .077 & .069 & .063 & .06 & .058 & .057 & .058 & .06 & .061 & .065 & .075\\
+
+\multirow{-9}{4.4em}{\centering\arraybackslash \textbf{I = 20  N = 100}} & KS & NA & .081 & .069 & .066 & .064 & .065 & .066 & .066 & .071 & .082 & NA\\
+\cmidrule{1-13}
+ & avg bma+ emp & .059 & \textbf{.053} & \textbf{.047} & \textbf{.045} & \textbf{.045} & \textbf{.042} & \textbf{.041} & \textbf{.044} & \textbf{.045} & \textbf{.049} & .061\\
+
+ & avg bma+ theo & \textbf{.057} & \textbf{.053} & \textbf{.047} & \textbf{.045} & \textbf{.045} & .043 & \textbf{.041} & \textbf{.044} & .046 & .05 & \textbf{.06}\\
+
+ & avg stack emp & .058 & \textbf{.053} & \textbf{.047} & \textbf{.045} & \textbf{.045} & .043 & \textbf{.041} & \textbf{.044} & \textbf{.045} & \textbf{.049} & .061\\
+
+ & avg stack theo & .058 & \textbf{.053} & .048 & \textbf{.045} & .046 & .043 & \textbf{.041} & \textbf{.044} & .046 & .05 & \textbf{.06}\\
+
+ & sel bma+ emp & .06 & \textbf{.053} & \textbf{.047} & \textbf{.045} & \textbf{.045} & .043 & \textbf{.041} & \textbf{.044} & \textbf{.045} & \textbf{.049} & .063\\
+
+ & sel bma+ theo & .059 & \textbf{.053} & \textbf{.047} & .046 & .046 & .044 & .042 & \textbf{.044} & .046 & .05 & .062\\
+
+ & sel stack emp & .062 & .054 & .048 & \textbf{.045} & \textbf{.045} & .044 & .043 & .045 & .046 & .05 & .064\\
+
+ & sel stack theo & .064 & .055 & .048 & .047 & .048 & .047 & .045 & .046 & .047 & .051 & .067\\
+
+\multirow{-9}{4.4em}{\centering\arraybackslash \textbf{I = 20  N = 250}} & KS & NA & .063 & .056 & .052 & .051 & .051 & .049 & .051 & .056 & .062 & NA\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+ \end{document}

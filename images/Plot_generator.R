@@ -310,8 +310,78 @@ ggsave("Stukel_fig.png",
 
 
 
+###### Item Averaging ######
+
+
+col_pallet <- c("#999999", 
+                "#E69F00", 
+                "#56B4E9", 
+                "#009E73", 
+                "#F0E442", 
+                "#0072B2", 
+                "#D55E00", 
+                "#CC79A7", 
+                "#271DEB")
+
+
+
+options(ggplot2.discrete.colour = col_pallet)
+
+item_summaries <- readRDS("item_summaries.RDS")
+
+
+item_summaries$model <- recode(item_summaries$model,
+                               `2pl` = "2PL",
+                               `1pl` = "1PL")
+
+colnames(item_summaries)[3] <- "Model"
+
+
+
+letters <- item_summaries %>% 
+   filter(Info_crit == "looic") %>% 
+   filter(item %in% c("letter.7", "letter.33", "letter.34", "letter.58")) %>% 
+   ggplot(aes(x = item, y = sum_values, color = Model)) +
+   geom_point(aes(col = Model)) +
+   labs(y = "LOOcv",
+        x = "Items") +
+   theme(text = element_text(family = "Times New Roman",
+                             size = 14),
+         panel.background = element_rect(fill='transparent'), 
+         plot.background = element_rect(fill='transparent', color=NA), 
+         legend.background = element_rect(fill='transparent'))
+
+
+
+print(letters)
+
+
+ggsave("Letters_plot.png", 
+       letters,
+       width = 7, height = 4.5, dpi = 300, units = "in")
 
 
 
 
+rotate <- item_summaries %>% 
+   filter(Info_crit == "looic") %>% 
+   filter(item %in% c("rotate.3", "rotate.4", "rotate.6", "rotate.8")) %>% 
+   ggplot(aes(x = item, y = sum_values, color = Model)) +
+   geom_point(aes(col = Model)) +
+   labs(y = "LOOcv",
+        x = "Items") +
+   theme(text = element_text(family = "Times New Roman",
+                             size = 14),
+         panel.background = element_rect(fill='transparent'), 
+         plot.background = element_rect(fill='transparent', color=NA), 
+         legend.background = element_rect(fill='transparent'))
+
+
+
+print(rotate)
+
+
+ggsave("Rotate_plot.png", 
+       rotate,
+       width = 7, height = 4.5, dpi = 300, units = "in")
 

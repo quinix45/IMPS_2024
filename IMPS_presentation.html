@@ -342,26 +342,35 @@ Fabio Setti &amp; Leah Feuerstahler
 </section>
 <section id="item-response-theory" class="slide level2">
 <h2>Item Response Theory</h2>
-<p><strong>Item response theory (IRT)</strong> is a branch of psychometrics that models how both <strong>person</strong> and <strong>item</strong> characteristics influence the probability of discrete responses to item.</p>
+<p><strong>Item response theory (IRT)</strong> is a branch of psychometrics that models how both <strong>person</strong> and <strong>item</strong> characteristics influence the probability of discrete responses to items.</p>
+<div class="fragment fade-in" data-fragment-index="1">
 <ul>
-<li><p><strong>Item parameter:</strong> characteristics of the item itself (<span class="math inline">\(i\)</span>).</p></li>
-<li><p><strong>Person parameter:</strong> Some latent trait (<span class="math inline">\(\theta\)</span>) varying across individuals (<span class="math inline">\(j\)</span>).</p></li>
+<li><p><strong>Item parameters:</strong> characteristics an item itself (<span class="math inline">\(i\)</span>).</p></li>
+<li><p><strong>Person parameters:</strong> Some latent trait (<span class="math inline">\(\theta\)</span>) varying across individuals (<span class="math inline">\(j\)</span>).</p></li>
 </ul>
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><br></p>
-<p><br> For example, the 2 parameter logistic model (2PL):</p>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p>For example, the 2 parameter logistic model (2PL):</p>
 <p><span class="math display">\[P(Y^j_{i} = 1| \theta_j, a_i, b_i) =  \frac{\exp[a_i(\theta_j - b_i)]}{1 + \exp[a_i(\theta_j - b_i)]}\]</span> <br></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
 <center>
 <p><span class="math inline">\(a\)</span> = discrimination</p>
 <p><span class="math inline">\(b\)</span> = difficulty</p>
 <p><span class="math inline">\(\theta\)</span> = latent trait</p>
 </center>
 </div>
-<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+</div>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><br> <br></p>
+<div class="fragment fade-in" data-fragment-index="4">
 <p><img data-src="images/two_pl.png"></p>
+</div>
 </div>
 </div>
 </div>
@@ -455,34 +464,47 @@ Fabio Setti &amp; Leah Feuerstahler
 <section id="estimation-and-sample-size" class="slide level2">
 <h2>Estimation and Sample Size</h2>
 <p>The more item parameters are added to the model, the more flexible the item response functions (IRF).</p>
+<div class="fragment fade-in" data-fragment-index="1">
 <p>However, the additional parameters of the <strong>3PL</strong> and <strong>4PL</strong> tend to require large sample sizes (<span class="math inline">\(N \geq 1000\)</span>) to be stably estimated.</p>
+</div>
 <p><br></p>
+<div class="fragment fade-in" data-fragment-index="2">
 <center>
 What about <strong>1PL</strong> and <strong>2PL</strong> models?
 </center>
+</div>
 <p><br></p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="2">
 <center>
 <strong>Maximum Likelihood</strong>
 </center>
+</div>
 <p><br></p>
+<div class="fragment fade-in" data-fragment-index="3">
 <p><i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 1PL models seem to be stably estimable with sample sizes as low as <span class="math inline">\(N = 100\)</span> (Finch &amp; French, 2019).</p>
 <p><br></p>
 <p><i class="fa fa-solid fa-thumbs-down" style="color: #9B3922;"></i> 2PL models seems to require a sample size of <span class="math inline">\(N = 200\)</span> or more (Drasgow, 1989; Liu &amp; Yang, 2018).</p>
 </div>
+</div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="2">
 <center>
 <strong>Markov Chain Monte Carlo</strong>
 </center>
+</div>
 <p><br></p>
+<div class="fragment fade-in" data-fragment-index="4">
 <p><i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 1PL models showed good coverage when <span class="math inline">\(N = 100\)</span> and generally outperformed maximum likelihood (Finch &amp; French, 2019).</p>
 <p><br></p>
-<p><i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models with hierarchical priors perform reasonably well even when when <span class="math inline">\(N = 100\)</span> (könig et al., 2020).</p>
+<p><i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models with hierarchical priors perform reasonably well even when <span class="math inline">\(N = 100\)</span> (könig et al., 2020).</p>
 </div>
 </div>
 </div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
 <style>
 .vl {
   border-left: 3px solid #9B3922;
@@ -496,20 +518,25 @@ What about <strong>1PL</strong> and <strong>2PL</strong> models?
 <div class="vl">
 
 </div>
+</div>
 </section>
 <section id="asymmetric-irt-models" class="slide level2">
 <h2>Asymmetric IRT Models</h2>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p>All the IRT models presented so far generate IRFs that are symmetric <strong>symmetric</strong>.</p>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="1">
+<p>All the IRT models presented so far generate IRFs that are <strong>symmetric</strong>.</p>
 <p><br> <br></p>
 <p><img data-src="images/symmetric_irf.png"></p>
 </div>
-<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+</div>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="2">
 <p>Samejima (2000) was the first scholar to propose the use <strong>asymmetric</strong> IRT with her logistic positive exponent (LPE) model.</p>
 <p><br></p>
 <p><img data-src="images/asymmetric_irf.png"></p>
+</div>
 </div>
 </div>
 </div>
@@ -519,18 +546,22 @@ What about <strong>1PL</strong> and <strong>2PL</strong> models?
 <p>The LPE has shown to have some identification issues in simulation studies (Lee &amp; Bolt, 2018), especially in small sample sizes. Two recently proposed asymmetric IRT models (Shim et al., 2023) may help address this issue:</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="1">
 <center>
 <p><strong>Complementary Log-Log (CLL)</strong></p>
 <p><span class="math display">\[ P(Y = 1| \theta) = 1 - \exp[-\exp[a(\theta - b)]]\]</span></p>
 <p><img data-src="images/CLL_vs_3pl.png"></p>
 </center>
 </div>
+</div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="2">
 <center>
 <p><strong>Negative Log-Log (NLL)</strong></p>
 <p><span class="math display">\[ P(Y = 1| \theta) =  \exp[-\exp[-a(\theta - b)]]\]</span> <img data-src="images/CLL_vs_3plU.png"></p>
 </center>
+</div>
 </div>
 </div>
 </div>
@@ -539,26 +570,36 @@ What about <strong>1PL</strong> and <strong>2PL</strong> models?
 <h2>What to do about Small Sample Sizes?</h2>
 <p>Although the NLL and CLL may approximate more complex models, complex IRFs remain hard to approximate in small sample sizes (<span class="math inline">\(N \leq 250\)</span>) with a single model.</p>
 <p><br></p>
+<div class="fragment fade-in" data-fragment-index="1">
 <center>
 Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </center>
+</div>
 <p><br></p>
-<p><strong>Model averaging</strong> takes into account model uncertainty by weighting model predictions according to their relative plausibility.</p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><strong>Model averaging</strong> takes into account model uncertainty by weighting model predictions according to model’s relative plausibility.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
 <p>The core of <strong>BMA</strong> is the <em>expected log pointwise predictive density</em>, <span class="math inline">\(ELPD = \sum log(p(y_i |y_{-i}, M_k))\)</span>, which is an approximation of leave-one-out cross validation (<span class="math inline">\(LOO_{CV}\)</span>).</p>
+</div>
 <p><br></p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="4">
 <p><strong>Two type of weights:</strong></p>
 <ul>
 <li><p>BMA weights with Bayesian bootstrapping (BMA+)</p></li>
 <li><p>Stacking weights</p></li>
 </ul>
 </div>
+</div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="5">
 <center>
 <strong>Idea:</strong> How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT?
 </center>
+</div>
 </div>
 </div>
 </div>
@@ -568,12 +609,15 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="1">
 <center>
 <strong>Ideal Scenario</strong>
 </center>
 <p>Ultimately, one would like to get the best possible estimate of <span class="math inline">\(P(Y = 1|\theta)\)</span> by averaging along the <span class="math inline">\(\theta\)</span> continuum. <img data-src="images/avg_plot.png"></p>
 </div>
-<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+</div>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="2">
 <center>
 <strong>Reality</strong>
 </center>
@@ -583,25 +627,53 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="empirical-and-theoretical-quantiles-of-theta" class="slide level2">
 <h2>Empirical and Theoretical Quantiles of <span class="math inline">\(\theta\)</span></h2>
+<div class="fragment fade-in" data-fragment-index="1">
 <p>Although the same person may be assigned a different <span class="math inline">\(\theta\)</span> depending on the model, the <strong>relative rank</strong> of participants should be scale invariant.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
 <p>This means that instead of averaging IRFs at the same <span class="math inline">\(\theta\)</span> values, it should be more sound to average the IRFs at the same <span class="math inline">\(\theta\)</span> <strong>quantile</strong>.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
 <p>These quantiles will be estimated empirically for each of the models to be averaged. Thus, the averaged probability of a keyed response at each <strong>empirical quantile</strong> will be</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
 <p><span class="math display">\[\overline{IRF}_{q} = \sum_{1}^{m} W_{m}P_{m}(\theta_{mq})\]</span> here <span class="math inline">\(q\)</span> represents a specific quantile, <span class="math inline">\(m\)</span> represents one of the candidate models, and <span class="math inline">\(W\)</span> represents the weight assigned to each model.</p>
+</div>
 <p><br></p>
-<p>Form comparison, IRFs will also be averaged at <strong>theoretical quantiles</strong> of the standard normal distribution.</p>
+<div class="fragment fade-in" data-fragment-index="5">
+<p>For comparison, IRFs will also be averaged at <strong>theoretical quantiles</strong> of the standard normal distribution.</p>
+</div>
 </section>
-<section>
-<section id="section" class="title-slide slide level1 center">
-<h1></h1>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="1">
 <ul>
-<li><p>Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, CLL, NLL) to recover complex IRFs in <strong>small sample sizes</strong>?</p></li>
-<li><p>Which method among <strong>BMA</strong>, model selection (<strong>MS</strong>), and kernel smoothing IRT (<strong>KS</strong>) will produce better IRF recovery?</p></li>
-<li><p>Will averaging at <strong>empirical <span class="math inline">\(\theta\)</span> quantiles</strong> achieve better IRF recovery than averaging at <strong>theoretical <span class="math inline">\(\theta\)</span> quantiles</strong>?</p></li>
-<li><p>How will <strong>stacking weights</strong> and <strong>BMA+</strong> weights behave?</p></li>
+<li>Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) to recover complex IRFs in <strong>small sample sizes</strong>?</li>
 </ul>
+</div>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<ul>
+<li>Which method among <strong>BMA</strong>, model selection (<strong>MS</strong>), and kernel smoothing IRT (<strong>KS</strong>) will produce better IRF recovery?</li>
+</ul>
+</div>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="3">
+<ul>
+<li>Will averaging at <strong>empirical <span class="math inline">\(\theta\)</span> quantiles</strong> achieve better IRF recovery than averaging at <strong>theoretical <span class="math inline">\(\theta\)</span> quantiles</strong>?</li>
+</ul>
+</div>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="4">
+<ul>
+<li>How will <strong>stacking weights</strong> and <strong>BMA+ weights</strong> behave?</li>
+</ul>
+</div>
 </section>
 <section id="simulation-data-generation" class="slide level2">
 <h2>Simulation: Data Generation</h2>
@@ -609,24 +681,20 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<center>
 <p><br> <br></p>
 <div class="fragment fade-in" data-fragment-index="1">
-<ul>
-<li><strong>2PL:</strong> <span class="math inline">\(\frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}\)</span></li>
-</ul>
+<p><strong>2PL:</strong> <span class="math inline">\(\frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}\)</span></p>
 </div>
 <p><br> <br></p>
 <div class="fragment fade-in" data-fragment-index="2">
-<ul>
-<li><strong>2MPL:</strong> <span class="math inline">\(\frac{1}{1 +\exp[-(a_{1}\theta_{1} + a_{2}\theta_{2} + d)]}\)</span></li>
-</ul>
+<p><strong>2MPL:</strong> <span class="math inline">\(\frac{1}{1 +\exp[-(a_{1}\theta_{1} + a_{2}\theta_{2} + d)]}\)</span></p>
 </div>
 <p><br> <br></p>
 <div class="fragment fade-in" data-fragment-index="3">
-<ul>
-<li><strong>GLL<sub>ua</sub></strong> and <strong>GLL<sub>la</sub></strong> (Zhang et al., 2023)</li>
-</ul>
+<p><strong>GLL<sub>ua</sub></strong> and <strong>GLL<sub>la</sub></strong> (Zhang et al., 2023)</p>
 </div>
+</center>
 </div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="r-stack">
@@ -635,7 +703,6 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 <p><img data-src="images/Stukel_fig.png"></p>
 </div>
 <div class="fragment fade-in" data-fragment-index="4">
-<p><br></p>
 <center>
 <strong>Parameters Generating Distributions</strong>
 </center>
@@ -653,7 +720,25 @@ Each of these conditions will be crossed with <strong>item = 10 &amp; 20</strong
 </section>
 <section id="estimation-method-and-irf-averaging" class="slide level2">
 <h2>Estimation Method and IRF Averaging</h2>
-<p>The 6 IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) will be estimated through MCMC using <code>brms</code> (Bürkner, 2017).</p>
+<p>The 6 IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) will be estimated through MCMC using <code>brms</code> (Bürkner, 2017). How is IRF averaging implemented?</p>
+<p><br></p>
+<center>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><strong>1. Posterior distributions of parameters:</strong> The MCMC sampler provides <span class="math inline">\(N\)</span> (6000 in this simulation) draws for each model parameter.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p>↓</p>
+<p><strong>2. Posterior distributions of <span class="math inline">\(P(Y = 1|\theta_q)\)</span>:</strong> The predicted probability of a keyed response is calculated at a set of empirical or theoretical quantiles , <span class="math inline">\(P(Y = 1|\theta_q)\)</span>, for all models across all MCMC draws.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p>↓</p>
+<p><strong>3. Model weights:</strong> A weight (stacking or BMA+) is calculated for each model.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p>↓</p>
+<p><strong>4. Averaged distribution of <span class="math inline">\(P(Y = 1|\theta_q)\)</span>:</strong> sample from each model distribution estimated in step 2 <strong>in proportion to model weight</strong>.</p>
+</div>
+</center>
 </section>
 <section id="priors-and-outcome" class="slide level2">
 <h2>Priors and Outcome</h2>
@@ -663,23 +748,28 @@ Each of these conditions will be crossed with <strong>item = 10 &amp; 20</strong
 <center>
 <strong>Priors</strong>
 </center>
-<p>The models used the partial pooling approach (i.e., random intercepts/slopes)</p>
-<p><br></p>
-<ul>
-<li><p><span class="math inline">\(log(\bar{a}) = N(0, 1)\)</span></p></li>
-<li><p><span class="math inline">\(\sigma_{log(\bar{a})} = N(0, 1)\)</span></p></li>
-<li><p><span class="math inline">\(\bar{b} = N(0, 3)\)</span></p></li>
-<li><p><span class="math inline">\(\sigma_{\bar{b}} = N(0, 3)\)</span></p></li>
-<li><p><span class="math inline">\(\bar{\theta} = 0\)</span></p></li>
-<li><p><span class="math inline">\(\sigma_\bar{\theta} = 1\)</span></p></li>
-</ul>
+<p>Model estimation used the partial pooling approach (i.e., random intercepts/slopes)</p>
+<p><br> <br></p>
+<center>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math inline">\(log(\bar{a}) = N(0, 1)\)</span></p>
+<p><span class="math inline">\(\sigma_{log(\bar{a})} = N(0, 1)\)</span></p>
+<p><span class="math inline">\(\bar{b} = N(0, 3)\)</span></p>
+<p><span class="math inline">\(\sigma_{\bar{b}} = N(0, 3)\)</span></p>
+<p><span class="math inline">\(\bar{\theta} = 0\)</span></p>
+<p><span class="math inline">\(\sigma_\bar{\theta} = 1\)</span></p>
+</div>
+</center>
 </div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="2">
 <center>
 <strong>Outcome</strong>
 </center>
 <p>The only outcome will be the root mean squared error (<strong>RMSE</strong>) between the data generating IRF and estimated IRF:</p>
+</div>
 <p><br> <br></p>
+<div class="fragment fade-in" data-fragment-index="3">
 <p><span class="math display">\[RMSE_{iq} = \sqrt{\frac{1}{n_i}\sum_1^n(P(y = 1|\theta_{iq}) - P(y = 1|\hat{\theta}_{iqn}))^{2}}\]</span></p>
 <p><span class="math inline">\(i =\)</span> item.</p>
 <p><span class="math inline">\(q =\)</span> quantile (either empirical or theoretical) of <span class="math inline">\(\theta\)</span> distribution.</p>
@@ -687,12 +777,167 @@ Each of these conditions will be crossed with <strong>item = 10 &amp; 20</strong
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="results-weight-distribution-with-10-items" class="slide level2">
+<h2>Results: Weight Distribution With 10 Items</h2>
+<center>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Weights_10_items.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</center>
+</section>
+<section id="results-weight-distribution-with-20-items" class="slide level2">
+<h2>Results: Weight Distribution With 20 Items</h2>
+<center>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Weights_20_items.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</center>
+</section>
+<section id="rmse-for-the-2pl-2mpl" class="slide level2">
+<h2>RMSE for the 2PL &amp; 2MPL</h2>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="1">
+<center>
+<strong>2PL</strong>
+</center>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/rmse_2PL.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="2">
+<center>
+<strong>2MPL</strong>
+</center>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/rmse_2MPL.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rmse-for-the-gllla-gllua" class="slide level2">
+<h2>RMSE for the GLL<sub>la</sub> &amp; GLL<sub>ua</sub></h2>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="1">
+<center>
+<strong>GLL<sub>la</sub></strong>
+</center>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/rmse_GLL_la.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="2">
+<center>
+<strong>GLL<sub>ua</sub></strong>
+</center>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/rmse_GLL_ua.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-of-results" class="slide level2">
+<h2>Summary of Results</h2>
+<div class="fragment fade-in" data-fragment-index="1">
+<ul>
+<li>BMA offers better IRF recovery compared to both MS and KS.</li>
+</ul>
+</div>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<ul>
+<li>BMA’s advantage over MS is more noticeable at low/high quantiles and with smaller sample sizes and less items.<br>
+</li>
+</ul>
+</div>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="3">
+<ul>
+<li>Stacking weights and BMA+ weights behave differently but offer comparable IRF recovery.</li>
+</ul>
+</div>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="4">
+<ul>
+<li>Empirical quantiles seemed to offer sight improvements over theoretical quantiles.</li>
+</ul>
+</div>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="5">
+<ul>
+<li>The 2PL gained weight as sample size and number of items increased.</li>
+</ul>
+</div>
+</section>
+<section id="future-directions-averaging-by-item" class="slide level2">
+<h2>Future Directions: Averaging By Item?</h2>
+<div class="fragment fade-in" data-fragment-index="1">
+<p style="font-size: 24px;">
+As mentioned in the introduction the <span class="math inline">\(LOO_{CV}\)</span> is a <strong>pointwise</strong> measures of fit. So, every single data point has a “fit measure” associated with it!
+</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p style="font-size: 24px;">
+Models are compared by summing these pointwise fit measures. What if we compared these fit measures also across <strong><em>items</em></strong> rather than just across models?
+</p>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="3">
+<p><img data-src="images/Rotate_plot.png" style="width:95.0%"></p>
+</div>
+</div>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in" data-fragment-index="4">
+<p><img data-src="images/Letters_plot.png" style="width:95.0%"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="5">
+<center>
+Globally, the 2PL fits best, but that is not necessarily the case for all the items on the test.
+</center>
+</div>
+</section>
+<section id="fin" class="title-slide slide level1 center">
+<h1>Fin 🤷</h1>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>IMPS 2024</p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

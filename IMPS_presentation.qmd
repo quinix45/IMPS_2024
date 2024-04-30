@@ -27,12 +27,13 @@ editor: source
 
 ## Item Response Theory
 
-**Item response theory (IRT)** is a branch of psychometrics that models how both **person** and **item** characteristics influence the probability of discrete responses to item.   
+**Item response theory (IRT)** is a branch of psychometrics that models how both **person** and **item** characteristics influence the probability of discrete responses to items.   
 
-- **Item parameter:** characteristics of the item itself ($i$).
+::: {.fragment .fade-in fragment-index="1"}
+- **Item parameters:** characteristics an item itself ($i$).
 
-- **Person parameter:** Some latent trait ($\theta$) varying across individuals ($j$).
-
+- **Person parameters:** Some latent trait ($\theta$) varying across individuals ($j$).
+:::
 
 
 ::: {layout-ncol="2"}
@@ -42,12 +43,16 @@ editor: source
 </br>
 
 </br>
+
+::: {.fragment .fade-in fragment-index="2"}
 For example, the 2 parameter logistic model (2PL): 
 
 
 $$P(Y^j_{i} = 1| \theta_j, a_i, b_i) =  \frac{\exp[a_i(\theta_j - b_i)]}{1 + \exp[a_i(\theta_j - b_i)]}$$
 </br>
+:::
 
+::: {.fragment .fade-in fragment-index="3"}
 <center>
 $a$ = discrimination
 
@@ -56,7 +61,7 @@ $b$ = difficulty
 $\theta$ = latent trait
 
 </center>
-
+:::
 :::
 
 :::col
@@ -64,9 +69,9 @@ $\theta$ = latent trait
 </br>
 </br>
 
-
+::: {.fragment .fade-in fragment-index="4"}
 ![](images/two_pl.png)
-
+:::
 :::
 :::
 
@@ -257,12 +262,15 @@ $d$ = slipping
 
 The more item parameters are added to the model, the more flexible the item response functions (IRF).
 
-
+::: {.fragment .fade-in fragment-index="1"}
 However, the additional parameters of the **3PL** and **4PL** tend to require large sample sizes ($N \geq 1000$) to be stably estimated.
+:::
 
 </br>
 
+::: {.fragment .fade-in fragment-index="2"}
 <center>  What about **1PL** and **2PL** models? </center>
+:::
 
 </br>
 
@@ -271,39 +279,48 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 
 :::col
 
+::: {.fragment .fade-in fragment-index="2"}
 <center> **Maximum Likelihood** </center>
+:::
 
 </br>
 
-<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i></i> 1PL models seem to be stably estimable with sample sizes as low as $N = 100$ (Finch & French, 2019).
+::: {.fragment .fade-in fragment-index="3"}
 
+<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 1PL models seem to be stably estimable with sample sizes as low as $N = 100$ (Finch & French, 2019).
 
 </br>
 
 <i class="fa fa-solid fa-thumbs-down" style="color: #9B3922;"></i> 2PL models seems to require a sample size of $N = 200$ or more (Drasgow, 1989; Liu & Yang, 2018).
 
+
+:::
+
 :::
 
 
 :::col
-<center> **Markov Chain Monte Carlo** </center>
 
+::: {.fragment .fade-in fragment-index="2"}
+<center> **Markov Chain Monte Carlo** </center>
+:::
 
 </br>
 
+::: {.fragment .fade-in fragment-index="4"}
 <i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i></i> 1PL models showed good coverage when $N = 100$ and generally outperformed maximum likelihood (Finch & French, 2019).
 
 
 </br>
 
-<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models with hierarchical priors perform reasonably well even when when $N = 100$ (k&ouml;nig et al., 2020).
+<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models with hierarchical priors perform reasonably well even when $N = 100$ (k&ouml;nig et al., 2020).
+:::
+
 
 :::
 :::
 
-
-
-
+::: {.fragment .fade-in fragment-index="2"}
 <style>
 .vl {
   border-left: 3px solid #9B3922;
@@ -316,7 +333,7 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 </style>
 
 <div class="vl"></div>
-
+:::
 
 
 ## Asymmetric IRT Models
@@ -325,17 +342,19 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 
 :::col
 
-All the IRT models presented so far generate IRFs that are symmetric **symmetric**.
+::: {.fragment .fade-in fragment-index="1"}
+All the IRT models presented so far generate IRFs that are **symmetric**.
 
 </br>
 </br>
 
 ![](images/symmetric_irf.png)
 
-
+:::
 :::
 
 :::col
+::: {.fragment .fade-in fragment-index="2"}
 
 Samejima (2000) was the first scholar to propose the use **asymmetric** IRT with her logistic positive exponent (LPE) model.
 
@@ -343,7 +362,7 @@ Samejima (2000) was the first scholar to propose the use **asymmetric** IRT with
 </br>
 
 ![](images/asymmetric_irf.png)
-
+:::
 
 :::
 :::
@@ -356,7 +375,10 @@ The LPE has shown to have some identification issues in simulation studies (Lee 
 ::: {layout-ncol="2"}
 
 :::col
+
+::: {.fragment .fade-in fragment-index="1"}
 <center> 
+
 
 **Complementary Log-Log (CLL)**
 
@@ -366,13 +388,14 @@ $$ P(Y = 1| \theta) = 1 - \exp[-\exp[a(\theta - b)]]$$
 ![](images/CLL_vs_3pl.png)
 
 </center>
-
+:::
 :::
 
 
 
 
 :::col
+::: {.fragment .fade-in fragment-index="2"}
 <center> 
 
 **Negative Log-Log (NLL)**
@@ -386,6 +409,8 @@ $$ P(Y = 1| \theta) =  \exp[-\exp[-a(\theta - b)]]$$
 
 :::
 
+:::
+
 
 ## What to do about Small Sample Sizes? 
 
@@ -393,19 +418,25 @@ Although the NLL and CLL may approximate more complex models, complex IRFs remai
 
 </br>
 
+::: {.fragment .fade-in fragment-index="1"}
 <center> Can we do better with **Bayesian model averaging (BMA)**? </center>
+:::
 
 </br>
 
-**Model averaging** takes into account model uncertainty by weighting model predictions according to their relative plausibility.
+::: {.fragment .fade-in fragment-index="2"}
+**Model averaging** takes into account model uncertainty by weighting model predictions according to model's relative plausibility.
+:::
 
+::: {.fragment .fade-in fragment-index="3"}
 The core of **BMA** is the *expected log pointwise predictive density*, $ELPD = \sum log(p(y_i |y_{-i}, M_k))$, which is an approximation of leave-one-out cross validation ($LOO_{CV}$).
-
+:::
 </br>
 
 ::: {layout-ncol="2"}
 
 :::col
+::: {.fragment .fade-in fragment-index="4"}
 
 **Two type of weights:**
 
@@ -414,15 +445,16 @@ The core of **BMA** is the *expected log pointwise predictive density*, $ELPD = 
 - Stacking weights
 
 :::
+:::
 
 :::col
 
 
-
+::: {.fragment .fade-in fragment-index="5"}
 <center>
 **Idea:** How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT? 
 </center>
-
+:::
 
 :::
 :::
@@ -433,15 +465,19 @@ The core of **BMA** is the *expected log pointwise predictive density*, $ELPD = 
 
 
 :::col
+::: {.fragment .fade-in fragment-index="1"}
+
 <center> **Ideal Scenario** </center>
 
 Ultimately, one would like to get the best possible estimate of $P(Y = 1|\theta)$ by averaging along the $\theta$ continuum.
 ![](images/avg_plot.png)
 
-
+:::
 :::
 
 :::col
+::: {.fragment .fade-in fragment-index="2"}
+
 <center> **Reality** </center>
 
 However, the same person will get a different $\theta$ depending on the model that is fit to the data. 
@@ -451,37 +487,66 @@ However, the same person will get a different $\theta$ depending on the model th
 
 ![](images/theta_plot.png)
 
-
+:::
 :::
 :::
 
 
 ## Empirical and Theoretical Quantiles of $\theta$ 
 
+::: {.fragment .fade-in fragment-index="1"}
 Although the same person may be assigned a different $\theta$ depending on the model, the **relative rank** of participants should be scale invariant.
+:::
 
-
+::: {.fragment .fade-in fragment-index="2"}
 This means that instead of averaging IRFs at the same $\theta$ values, it should be more sound to average the IRFs at the same $\theta$ **quantile**. 
+:::
 
-
+::: {.fragment .fade-in fragment-index="3"}
 These quantiles will be estimated empirically for each of the models to be averaged. Thus, the averaged probability of a keyed response at each **empirical quantile** will be 
+:::
 
+::: {.fragment .fade-in fragment-index="4"}
 $$\overline{IRF}_{q} = \sum_{1}^{m} W_{m}P_{m}(\theta_{mq})$$
 here $q$ represents a specific quantile, $m$ represents one of the candidate models, and $W$ represents the weight assigned to each model.
+:::
 
 </br>
 
-Form comparison, IRFs will also be averaged at **theoretical quantiles** of the standard normal distribution.
+::: {.fragment .fade-in fragment-index="5"}
+For comparison, IRFs will also be averaged at **theoretical quantiles** of the standard normal distribution.
+:::
 
-# {}
 
-- Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, CLL, NLL) to recover complex IRFs in **small sample sizes**?
 
-- Which method among **BMA**, model selection (**MS**), and kernel smoothing IRT (**KS**) will produce better IRF recovery?
+## {}
 
+
+</br>
+
+::: {.fragment .fade-in fragment-index="1"}
+- Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) to recover complex IRFs in **small sample sizes**?
+:::
+
+</br>
+
+::: {.fragment .fade-in fragment-index="2"}
+- Which method among **BMA**, model selection (**MS**), and kernel smoothing IRT (**KS**) will produce better IRF 
+recovery?
+:::
+
+</br>
+
+::: {.fragment .fade-in fragment-index="3"}
 - Will averaging at **empirical $\theta$ quantiles** achieve better IRF recovery than averaging at **theoretical $\theta$ quantiles**?
+:::
 
-- How will **stacking weights** and **BMA+** weights behave? 
+</br>
+
+::: {.fragment .fade-in fragment-index="4"}
+- How will **stacking weights** and **BMA+ weights** behave? 
+:::
+
 
 ## Simulation: Data Generation
 
@@ -489,26 +554,32 @@ Most data generating conditions were designed to be "realistic", where the true 
 
 ::: {layout-ncol="2"}
 
+
+
+
 :::col
+
+<center>
 </br>
 </br>
 
 ::: {.fragment .fade-in fragment-index="1"}
-- **2PL:** $\frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}$
+ **2PL:** $\frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}$
 :::
 
 </br>
 </br>
 
 ::: {.fragment .fade-in fragment-index="2"}
-- **2MPL:** $\frac{1}{1 +\exp[-(a_{1}\theta_{1} + a_{2}\theta_{2} + d)]}$
+ **2MPL:** $\frac{1}{1 +\exp[-(a_{1}\theta_{1} + a_{2}\theta_{2} + d)]}$
 :::
 </br>
 </br>
 
 ::: {.fragment .fade-in fragment-index="3"}
-- **GLL~ua~** and **GLL~la~** (Zhang et al., 2023)
+ **GLL~ua~** and **GLL~la~** (Zhang et al., 2023)
 :::
+</center>
 
 :::
 :::col
@@ -523,9 +594,6 @@ Most data generating conditions were designed to be "realistic", where the true 
 
 ::: {.fragment .fade-in fragment-index="4"}
 
-
-
-</br>
 
 <center> **Parameters Generating Distributions** </center>
 
@@ -546,11 +614,37 @@ Most data generating conditions were designed to be "realistic", where the true 
 
 ## Estimation Method and IRF Averaging
 
-The 6 IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) will be estimated through MCMC using `brms` (B&uuml;rkner, 2017).
+The 6 IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) will be estimated through MCMC using `brms` (B&uuml;rkner, 2017). How is IRF averaging implemented?
 
+</br>
 
+<center>
 
+::: {.fragment .fade-in fragment-index="1"}
+**1. Posterior distributions of parameters:** The MCMC sampler provides $N$ (6000 in this simulation) draws for each model parameter.
+:::
+ 
+::: {.fragment .fade-in fragment-index="2"} 
+ &darr;
+ 
+ **2. Posterior distributions of $P(Y = 1|\theta_q)$:** The predicted probability of a keyed response is calculated at a set of empirical or theoretical quantiles , $P(Y = 1|\theta_q)$, for all models across all MCMC draws. 
+:::
 
+::: {.fragment .fade-in fragment-index="3"}
+ &darr;
+ 
+**3. Model weights:** A weight (stacking or BMA+) is calculated for each model.
+:::
+  
+  
+::: {.fragment .fade-in fragment-index="4"}  
+ &darr;
+ 
+
+ **4. Averaged distribution of $P(Y = 1|\theta_q)$:** sample from each model distribution estimated in step 2 **in proportion to model weight**.
+:::
+
+</center>
 
 
 ## Priors and Outcome
@@ -562,34 +656,48 @@ The 6 IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) will be estimated through MC
 
 <center> **Priors** </center>
 
-The models used the partial pooling approach (i.e., random intercepts/slopes)
+Model estimation used the partial pooling approach (i.e., random intercepts/slopes)
 
 </br>
+</br>
 
-- $log(\bar{a}) = N(0, 1)$
+<center>
 
-- $\sigma_{log(\bar{a})} = N(0, 1)$
+::: {.fragment .fade-in fragment-index="1"}  
 
-- $\bar{b} = N(0, 3)$
+$log(\bar{a}) = N(0, 1)$
 
-- $\sigma_{\bar{b}} = N(0, 3)$
+$\sigma_{log(\bar{a})} = N(0, 1)$
 
-- $\bar{\theta} = 0$
+$\bar{b} = N(0, 3)$
 
-- $\sigma_\bar{\theta} = 1$
+$\sigma_{\bar{b}} = N(0, 3)$
+
+$\bar{\theta} = 0$
+
+$\sigma_\bar{\theta} = 1$
+
+:::
+
+</center>
 
 :::
 
 
 :::col
 
+::: {.fragment .fade-in fragment-index="2"}  
+
 <center> **Outcome** </center>
 
 The only outcome will be the root mean squared error (**RMSE**) between the data generating IRF and estimated IRF:
 
+:::
+
 </br>
 </br>
 
+::: {.fragment .fade-in fragment-index="3"}  
 
 $$RMSE_{iq} = \sqrt{\frac{1}{n_i}\sum_1^n(P(y = 1|\theta_{iq}) - P(y = 1|\hat{\theta}_{iqn}))^{2}}$$
 
@@ -600,33 +708,153 @@ $q =$ quantile (either empirical or theoretical) of $\theta$ distribution.
 $n =$ number of MCMC draws (6000). 
 
 :::
+
+:::
+:::
+
+
+## Results: Weight Distribution With 10 Items
+
+
+<center>
+::: {.fragment .fade-in fragment-index="1"} 
+
+![](images/Weights_10_items.png){fig-align="center" width=65%}
+:::
+
+</center>
+
+
+## Results: Weight Distribution With 20 Items
+
+
+<center>
+
+::: {.fragment .fade-in fragment-index="1"} 
+![](images/Weights_20_items.png){fig-align="center" width=65%}
+:::
+
+</center>
+
+
+## RMSE for the 2PL & 2MPL
+
+
+::: {layout-ncol="2"}
+
+:::col
+::: {.fragment .fade-in fragment-index="1"}  
+
+<center> **2PL** </center>
+
+![](images/rmse_2PL.png){fig-align="center" width=85%}
+:::
+:::
+
+:::col
+::: {.fragment .fade-in fragment-index="2"}  
+<center> **2MPL** </center>
+
+![](images/rmse_2MPL.png){fig-align="center" width=85%}
+:::
+:::
+
+:::
+
+
+## RMSE for the GLL~la~ & GLL~ua~
+
+
+::: {layout-ncol="2"}
+
+:::col
+::: {.fragment .fade-in fragment-index="1"}  
+
+<center> **GLL~la~** </center>
+
+![](images/rmse_GLL_la.png){fig-align="center" width=85%}
+
+:::
+:::
+
+:::col
+::: {.fragment .fade-in fragment-index="2"}  
+
+<center> **GLL~ua~** </center>
+
+![](images/rmse_GLL_ua.png){fig-align="center" width=85%}
+
+:::
+:::
+
+:::
+
+## Summary of Results
+
+::: {.fragment .fade-in fragment-index="1"}  
+- BMA offers better IRF recovery compared to both MS and KS.
+:::
+
+</br>
+
+::: {.fragment .fade-in fragment-index="2"}  
+- BMA's advantage over MS is more noticeable at low/high quantiles and with smaller sample sizes and less items.  
+:::
+
+</br>
+
+::: {.fragment .fade-in fragment-index="3"}  
+- Stacking weights and BMA+ weights behave differently but offer comparable IRF recovery. 
+:::
+
+</br>
+
+::: {.fragment .fade-in fragment-index="4"}  
+- Empirical quantiles seemed to offer sight improvements over theoretical quantiles.
+:::
+
+</br>
+
+:::{.fragment .fade-in fragment-index="5"}  
+- The 2PL gained weight as sample size and number of items increased.
+:::
+
+## Future Directions: Averaging By Item?
+
+::: {.fragment .fade-in fragment-index="1"}  
+<p style="font-size: 24px;"> As mentioned in the introduction the $LOO_{CV}$ is a **pointwise** measures of fit. So, every single data point has a "fit measure" associated with it! </p>
+:::
+
+::: {.fragment .fade-in fragment-index="2"}  
+<p style="font-size: 24px;"> Models are compared by summing these pointwise fit measures. What if we compared these fit measures also across ***items*** rather than just across models? </p>
+:::
+
+
+::: {layout-ncol="2"}
+
+:::col
+
+::: {.fragment .fade-in fragment-index="3"}
+
+![](images/Rotate_plot.png){width=95%}
+:::
+:::
+
+:::col
+::: {.fragment .fade-in fragment-index="4"}  
+
+![](images/Letters_plot.png){width=95%}
+:::
+:::
+:::
+
+::: {.fragment .fade-in fragment-index="5"}  
+<center> Globally, the 2PL fits best, but that is not necessarily the case for all the items on the test. </center>
 :::
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Fin 🤷
 
 
 
