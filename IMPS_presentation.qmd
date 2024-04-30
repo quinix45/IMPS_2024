@@ -296,7 +296,7 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 
 </br>
 
-<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models   of $N = 100$ or more (Drasgow, 1989; Liu & Yang, 2018).
+<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models with hierarchical priors perform reasonably well even when when $N = 100$ (k&ouml;nig et al., 2020).
 
 :::
 :::
@@ -493,41 +493,35 @@ Most data generating conditions were designed to be "realistic", where the true 
 </br>
 </br>
 
+::: {.fragment .fade-in fragment-index="1"}
 - **2PL:** $\frac{\exp[a(\theta - b)]}{1 + \exp[a(\theta - b)]}$
-
-</br>
-</br>
-
-- **2MPL:** $\frac{1}{1 +\exp[-(a_{1}\theta_{1} + a_{2}\theta_{2} + d)]}$
-
-</br>
-</br>
-
- 
-- **GLL~ua~** and **GLL~la~** (Zhang et al., 2023)
-
-
-
-
-
 :::
 
+</br>
+</br>
 
+::: {.fragment .fade-in fragment-index="2"}
+- **2MPL:** $\frac{1}{1 +\exp[-(a_{1}\theta_{1} + a_{2}\theta_{2} + d)]}$
+:::
+</br>
+</br>
 
+::: {.fragment .fade-in fragment-index="3"}
+- **GLL~ua~** and **GLL~la~** (Zhang et al., 2023)
+:::
+
+:::
 :::col
-
-
-
 ::: r-stack
 
 
-::: {.fragment .fade-in-then-out fragment-index="1"}
+::: {.fragment .fade-in-then-out fragment-index="3"}
 </br>
 
 ![](images/Stukel_fig.png)
 :::
 
-::: {.fragment .fade-in fragment-index="2"}
+::: {.fragment .fade-in fragment-index="4"}
 
 
 
@@ -541,10 +535,74 @@ Most data generating conditions were designed to be "realistic", where the true 
 
 :::
 
+:::
+:::
 
+::: {.fragment .fade-in fragment-index="5"}
+<center> Each of these conditions will be crossed with **item = 10 & 20** and **sample size = 100 & 250** </center>
+:::
+
+
+
+## Estimation Method and IRF Averaging
+
+The 6 IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) will be estimated through MCMC using `brms` (B&uuml;rkner, 2017).
+
+
+
+
+
+
+## Priors and Outcome
+
+
+::: {layout-ncol="2"}
+
+:::col
+
+<center> **Priors** </center>
+
+The models used the partial pooling approach (i.e., random intercepts/slopes)
+
+</br>
+
+- $log(\bar{a}) = N(0, 1)$
+
+- $\sigma_{log(\bar{a})} = N(0, 1)$
+
+- $\bar{b} = N(0, 3)$
+
+- $\sigma_{\bar{b}} = N(0, 3)$
+
+- $\bar{\theta} = 0$
+
+- $\sigma_\bar{\theta} = 1$
+
+:::
+
+
+:::col
+
+<center> **Outcome** </center>
+
+The only outcome will be the root mean squared error (**RMSE**) between the data generating IRF and estimated IRF:
+
+</br>
+</br>
+
+
+$$RMSE_{iq} = \sqrt{\frac{1}{n_i}\sum_1^n(P(y = 1|\theta_{iq}) - P(y = 1|\hat{\theta}_{iqn}))^{2}}$$
+
+$i =$ item.
+
+$q =$ quantile (either empirical or theoretical) of $\theta$ distribution. 
+
+$n =$ number of MCMC draws (6000). 
 
 :::
 :::
+
+
 
 
 

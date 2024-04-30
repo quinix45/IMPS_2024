@@ -30,7 +30,8 @@ irf_LPE <- function(th, ksi = 1){
    irf_4PL(theta = th)^ksi
 }
 
-irf_LPE(1, 3)
+
+irf_stukel_vec <- Vectorize(irf_stukel.2PL)
 
 
 theta <- seq(-3.2, 3.2, .01)
@@ -279,8 +280,33 @@ ggsave("CLL_vs_3plU.png",
 
 
 
+####### Stukel fig#####
 
 
+Stukel_fig <- ggplot(data.frame(x = theta),aes(x = x)) +
+   geom_function(fun = irf_stukel_vec, args = list(alpha1 = 1), aes(colour = "la = 0, ua = 1")) +
+   geom_function(fun = irf_stukel_vec, args = list(alpha2 = -1), aes(colour = "la = -1, ua = 0")) +
+   geom_function(fun = irf_stukel_vec, args = list(alpha1 = .5, alpha2 = -1.5), aes(colour = "la = -1.5, ua = .5")) +
+   scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
+   theme(text = element_text(family = "Times New Roman",
+                             size = 14)) +
+   labs(x = "\u03b8",
+        y = expression(paste(P, "(", italic(Y), " = 1 | ", theta, ")"))) +
+   scale_colour_manual(values = c("red","blue", "magenta"),
+                       name = "") +
+   ylim(c(0, 1)) +
+   theme(panel.background = element_rect(fill='transparent'), 
+         plot.background = element_rect(fill='transparent', color=NA), 
+         legend.background = element_rect(fill='transparent'),
+         legend.position=c(.8,.25))
+
+
+print(Stukel_fig)
+
+
+ggsave("Stukel_fig.png", 
+       Stukel_fig,
+       width = 7, height = 4.5, dpi = 300, units = "in")
 
 
 
