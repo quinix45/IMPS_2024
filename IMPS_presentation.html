@@ -345,7 +345,7 @@ Fabio Setti &amp; Leah Feuerstahler
 <p><strong>Item response theory (IRT)</strong> is a branch of psychometrics that models how both <strong>person</strong> and <strong>item</strong> characteristics influence the probability of discrete responses to items.</p>
 <div class="fragment fade-in" data-fragment-index="1">
 <ul>
-<li><p><strong>Item parameters:</strong> characteristics an item itself (<span class="math inline">\(i\)</span>).</p></li>
+<li><p><strong>Item parameters:</strong> characteristics of an item itself (<span class="math inline">\(i\)</span>).</p></li>
 <li><p><strong>Person parameters:</strong> Some latent trait (<span class="math inline">\(\theta\)</span>) varying across individuals (<span class="math inline">\(j\)</span>).</p></li>
 </ul>
 </div>
@@ -533,7 +533,7 @@ What about <strong>1PL</strong> and <strong>2PL</strong> models?
 </div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="fragment fade-in" data-fragment-index="2">
-<p>Samejima (2000) was the first scholar to propose the use <strong>asymmetric</strong> IRT with her logistic positive exponent (LPE) model.</p>
+<p>Samejima (2000) was the first scholar to propose the use of <strong>asymmetric</strong> IRT models with her logistic positive exponent (LPE) model.</p>
 <p><br></p>
 <p><img data-src="images/asymmetric_irf.png"></p>
 </div>
@@ -635,13 +635,13 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 <p>Although the same person may be assigned a different <span class="math inline">\(\theta\)</span> depending on the model, the <strong>relative rank</strong> of participants should be scale invariant.</p>
 </div>
 <div class="fragment fade-in" data-fragment-index="2">
-<p>This means that instead of averaging IRFs at the same <span class="math inline">\(\theta\)</span> values, it should be more sound to average the IRFs at the same <span class="math inline">\(\theta\)</span> <strong>quantile</strong>.</p>
+<p>This means that instead of averaging IRFs at the same <span class="math inline">\(\theta\)</span> values, it should be more sound to average IRFs at the same <span class="math inline">\(\theta\)</span> <strong>quantile</strong>.</p>
 </div>
 <div class="fragment fade-in" data-fragment-index="3">
 <p>These quantiles will be estimated empirically for each of the models to be averaged. Thus, the averaged probability of a keyed response at each <strong>empirical quantile</strong> will be</p>
 </div>
 <div class="fragment fade-in" data-fragment-index="4">
-<p><span class="math display">\[\overline{IRF}_{q} = \sum_{1}^{m} W_{m}P_{m}(\theta_{mq})\]</span> here <span class="math inline">\(q\)</span> represents a specific quantile, <span class="math inline">\(m\)</span> represents one of the candidate models, and <span class="math inline">\(W\)</span> represents the weight assigned to each model.</p>
+<p><span class="math display">\[\overline{IRF}_{q} = \sum_{1}^{m} W_{m}P_{m}(\theta_{mq})\]</span> where <span class="math inline">\(q\)</span> represents a specific quantile, <span class="math inline">\(m\)</span> represents one of the candidate models, and <span class="math inline">\(W\)</span> represents the weight assigned to each model.</p>
 </div>
 <p><br></p>
 <div class="fragment fade-in" data-fragment-index="5">
@@ -653,7 +653,7 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 <p><br></p>
 <div class="fragment fade-in" data-fragment-index="1">
 <ul>
-<li>Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) to recover complex IRFs in <strong>small sample sizes</strong>?</li>
+<li>Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) to recover complex IRFs in <strong>small samples</strong>?</li>
 </ul>
 </div>
 <p><br></p>
@@ -875,7 +875,7 @@ Each of these conditions will be crossed with <strong>item = 10 &amp; 20</strong
 <p><br></p>
 <div class="fragment fade-in" data-fragment-index="2">
 <ul>
-<li>BMA’s advantage over MS is more noticeable at low/high quantiles and with smaller sample sizes and less items.<br>
+<li>BMA’s advantage over MS is more noticeable at low/high quantiles, with smaller sample sizes, and with less items.<br>
 </li>
 </ul>
 </div>
@@ -888,7 +888,7 @@ Each of these conditions will be crossed with <strong>item = 10 &amp; 20</strong
 <p><br></p>
 <div class="fragment fade-in" data-fragment-index="4">
 <ul>
-<li>Empirical quantiles seemed to offer sight improvements over theoretical quantiles.</li>
+<li>Empirical quantiles seemed to offer slight improvements over theoretical quantiles.</li>
 </ul>
 </div>
 <p><br></p>
@@ -902,29 +902,29 @@ Each of these conditions will be crossed with <strong>item = 10 &amp; 20</strong
 <h2>Future Directions: Averaging By Item?</h2>
 <div class="fragment fade-in" data-fragment-index="1">
 <p style="font-size: 24px;">
-As mentioned in the introduction the <span class="math inline">\(LOO_{CV}\)</span> is a <strong>pointwise</strong> measures of fit. So, every single data point has a “fit measure” associated with it!
+As mentioned in the introduction, the <span class="math inline">\(LOO_{CV}\)</span> is a <strong>pointwise</strong> measures of fit. So, every single data point has a “fit measure” associated with it!
 </p>
 </div>
 <div class="fragment fade-in" data-fragment-index="2">
 <p style="font-size: 24px;">
-Models are compared by summing these pointwise fit measures. What if we compared these fit measures also across <strong><em>items</em></strong> rather than just across models?
+Models are compared by summing these pointwise fit measures across all data points. <span class="fragment fade-in" data-fragment-index="3">What if we compared these fit measures also across <strong><em>items</em></strong> rather than just across models?</span>
 </p>
 </div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="fragment fade-in" data-fragment-index="3">
+<div class="fragment fade-in" data-fragment-index="4">
 <p><img data-src="images/Rotate_plot.png" style="width:95.0%"></p>
 </div>
 </div>
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="fragment fade-in" data-fragment-index="4">
+<div class="fragment fade-in" data-fragment-index="5">
 <p><img data-src="images/Letters_plot.png" style="width:95.0%"></p>
 </div>
 </div>
 </div>
 </div>
-<div class="fragment fade-in" data-fragment-index="5">
+<div class="fragment fade-in" data-fragment-index="6">
 <center>
 Globally, the 2PL fits best, but that is not necessarily the case for all the items on the test.
 </center>

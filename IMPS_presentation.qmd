@@ -30,7 +30,7 @@ editor: source
 **Item response theory (IRT)** is a branch of psychometrics that models how both **person** and **item** characteristics influence the probability of discrete responses to items.   
 
 ::: {.fragment .fade-in fragment-index="1"}
-- **Item parameters:** characteristics an item itself ($i$).
+- **Item parameters:** characteristics of an item itself ($i$).
 
 - **Person parameters:** Some latent trait ($\theta$) varying across individuals ($j$).
 :::
@@ -356,7 +356,7 @@ All the IRT models presented so far generate IRFs that are **symmetric**.
 :::col
 ::: {.fragment .fade-in fragment-index="2"}
 
-Samejima (2000) was the first scholar to propose the use **asymmetric** IRT with her logistic positive exponent (LPE) model.
+Samejima (2000) was the first scholar to propose the use of **asymmetric** IRT models with her logistic positive exponent (LPE) model.
 
 
 </br>
@@ -499,7 +499,7 @@ Although the same person may be assigned a different $\theta$ depending on the m
 :::
 
 ::: {.fragment .fade-in fragment-index="2"}
-This means that instead of averaging IRFs at the same $\theta$ values, it should be more sound to average the IRFs at the same $\theta$ **quantile**. 
+This means that instead of averaging IRFs at the same $\theta$ values, it should be more sound to average IRFs at the same $\theta$ **quantile**. 
 :::
 
 ::: {.fragment .fade-in fragment-index="3"}
@@ -508,7 +508,7 @@ These quantiles will be estimated empirically for each of the models to be avera
 
 ::: {.fragment .fade-in fragment-index="4"}
 $$\overline{IRF}_{q} = \sum_{1}^{m} W_{m}P_{m}(\theta_{mq})$$
-here $q$ represents a specific quantile, $m$ represents one of the candidate models, and $W$ represents the weight assigned to each model.
+where $q$ represents a specific quantile, $m$ represents one of the candidate models, and $W$ represents the weight assigned to each model.
 :::
 
 </br>
@@ -525,7 +525,7 @@ For comparison, IRFs will also be averaged at **theoretical quantiles** of the s
 </br>
 
 ::: {.fragment .fade-in fragment-index="1"}
-- Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) to recover complex IRFs in **small sample sizes**?
+- Is it possible to leverage simple symmetric and asymmetric IRT models (1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL) to recover complex IRFs in **small samples**?
 :::
 
 </br>
@@ -798,7 +798,7 @@ $n =$ number of MCMC draws (6000).
 </br>
 
 ::: {.fragment .fade-in fragment-index="2"}  
-- BMA's advantage over MS is more noticeable at low/high quantiles and with smaller sample sizes and less items.  
+- BMA's advantage over MS is more noticeable at low/high quantiles, with smaller sample sizes, and with less items.  
 :::
 
 </br>
@@ -810,7 +810,7 @@ $n =$ number of MCMC draws (6000).
 </br>
 
 ::: {.fragment .fade-in fragment-index="4"}  
-- Empirical quantiles seemed to offer sight improvements over theoretical quantiles.
+- Empirical quantiles seemed to offer slight improvements over theoretical quantiles.
 :::
 
 </br>
@@ -822,11 +822,11 @@ $n =$ number of MCMC draws (6000).
 ## Future Directions: Averaging By Item?
 
 ::: {.fragment .fade-in fragment-index="1"}  
-<p style="font-size: 24px;"> As mentioned in the introduction the $LOO_{CV}$ is a **pointwise** measures of fit. So, every single data point has a "fit measure" associated with it! </p>
+<p style="font-size: 24px;"> As mentioned in the introduction, the $LOO_{CV}$ is a **pointwise** measures of fit. So, every single data point has a "fit measure" associated with it! </p>
 :::
 
 ::: {.fragment .fade-in fragment-index="2"}  
-<p style="font-size: 24px;"> Models are compared by summing these pointwise fit measures. What if we compared these fit measures also across ***items*** rather than just across models? </p>
+<p style="font-size: 24px;"> Models are compared by summing these pointwise fit measures across all data points. [What if we compared these fit measures also across ***items*** rather than just across models?]{.fragment .fade-in fragment-index="3"}  </p>
 :::
 
 
@@ -834,21 +834,21 @@ $n =$ number of MCMC draws (6000).
 
 :::col
 
-::: {.fragment .fade-in fragment-index="3"}
+::: {.fragment .fade-in fragment-index="4"}
 
 ![](images/Rotate_plot.png){width=95%}
 :::
 :::
 
 :::col
-::: {.fragment .fade-in fragment-index="4"}  
+::: {.fragment .fade-in fragment-index="5"}  
 
 ![](images/Letters_plot.png){width=95%}
 :::
 :::
 :::
 
-::: {.fragment .fade-in fragment-index="5"}  
+::: {.fragment .fade-in fragment-index="6"}  
 <center> Globally, the 2PL fits best, but that is not necessarily the case for all the items on the test. </center>
 :::
 

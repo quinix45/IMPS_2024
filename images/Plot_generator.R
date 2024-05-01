@@ -41,8 +41,10 @@ theta <- seq(-3.2, 3.2, .01)
 
 
 two_pl <- ggplot(data.frame(x = theta),aes(x = x)) +
-  geom_function(fun = irf_4PL, args = list(b = 1), aes(colour = "b = 1, a = 1")) +
-  geom_function(fun = irf_4PL, args = list(a = 1.5), aes(colour = "b = 0, a = 1.5")) +
+  geom_function(fun = irf_4PL, args = list(b = 1), aes(colour = "b = 1, a = 1"), 
+                linewidth = .8) +
+  geom_function(fun = irf_4PL, args = list(a = 1.5), aes(colour = "b = 0, a = 1.5"), 
+                linewidth = .8) +
   geom_function(fun = irf_4PL, aes(colour = "b = 0, a = 1"))+
   scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
   theme(text = element_text(family = "Times New Roman",
@@ -54,6 +56,7 @@ two_pl <- ggplot(data.frame(x = theta),aes(x = x)) +
   theme(panel.background = element_rect(fill='transparent'), 
     plot.background = element_rect(fill='transparent', color=NA), 
     legend.background = element_rect(fill='transparent'),
+    legend.text=element_text(size=14), 
     legend.position=c(.8,.25))
 
 
@@ -70,9 +73,12 @@ ggsave("two_pl.png",
 ###### 1PL ######
 
 one_pl <- ggplot(data.frame(x = theta),aes(x = x)) +
-          geom_function(fun = irf_4PL, args = list(b = 1), aes(colour = "b = 1")) +
-          geom_function(fun = irf_4PL, args = list(b = - 1), aes(colour = "b = -1")) +
-          geom_function(fun = irf_4PL, aes(colour = "b = 0"))+
+          geom_function(fun = irf_4PL, args = list(b = 1), aes(colour = "b = 1"), 
+                        linewidth = .8) +
+          geom_function(fun = irf_4PL, args = list(b = - 1), aes(colour = "b = -1"), 
+                        linewidth = .8) +
+          geom_function(fun = irf_4PL, aes(colour = "b = 0"), 
+                        linewidth = .8)+
           scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
           theme(text = element_text(family = "Times New Roman",
                             size = 14)) +
@@ -83,6 +89,7 @@ one_pl <- ggplot(data.frame(x = theta),aes(x = x)) +
   theme(panel.background = element_rect(fill='transparent'), 
         plot.background = element_rect(fill='transparent', color=NA), 
         legend.background = element_rect(fill='transparent'),
+        legend.text=element_text(size=14), 
         legend.position=c(.8,.25))
 
 
@@ -99,9 +106,12 @@ ggsave("one_pl.png",
 ###### 3PL ######
 
 three_pl <- ggplot(data.frame(x = theta),aes(x = x)) +
-            geom_function(fun = irf_4PL, args = list(a = 1, b = 1, c = .15), aes(colour = "a = 1, b = 1, c = .15")) +
-            geom_function(fun = irf_4PL, args = list(a = 1.5, b = 0, c = .10), aes(colour = "a = 1.5, b = 0, c = .10")) +
-            geom_function(fun = irf_4PL, args = list(a = 1, b = - 1, c = .10), aes(colour = "a = 1, b = - 1, c = .10"))+
+            geom_function(fun = irf_4PL, args = list(a = 1, b = 1, c = .15), aes(colour = "a = 1, b = 1, c = .15"), 
+                          linewidth = .8) +
+            geom_function(fun = irf_4PL, args = list(a = 1.5, b = 0, c = .10), aes(colour = "a = 1.5, b = 0, c = .10"), 
+                          linewidth = .8) +
+            geom_function(fun = irf_4PL, args = list(a = 1, b = - 1, c = .10), aes(colour = "a = 1, b = - 1, c = .10"), 
+                          linewidth = .8)+
             scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
             theme(text = element_text(family = "Times New Roman",
                             size = 14)) +
@@ -116,6 +126,7 @@ three_pl <- ggplot(data.frame(x = theta),aes(x = x)) +
   theme(panel.background = element_rect(fill='transparent'), 
         plot.background = element_rect(fill='transparent', color=NA), 
         legend.background = element_rect(fill='transparent'),
+        legend.text=element_text(size=14), 
         legend.position=c(.8,.25))
 
 
@@ -132,9 +143,12 @@ ggsave("three_pl.png",
 ###### 4PL ######
 
 four_pl <- ggplot(data.frame(x = theta),aes(x = x)) +
-  geom_function(fun = irf_4PL, args = list(a = 1, b = 1, c = .15, d = .90 ), aes(colour = "a = 1, b = 1, c = .15 , d = .90")) +
-  geom_function(fun = irf_4PL, args = list(a = 1.5, b = 0, c = .10, d = .75), aes(colour = "a = 1.5, b = 0, c = .10, d = .75")) +
-  geom_function(fun = irf_4PL, args = list(a = 1, b = - 1, c = .10, d = .85), aes(colour = "a = 1, b = - 1, c = .10, d = .85"))+
+  geom_function(fun = irf_4PL, args = list(a = 1, b = 1, c = .15, d = .90 ), aes(colour = "a = 1, b = 1, c = .15 , d = .90"), 
+                linewidth = .8) +
+  geom_function(fun = irf_4PL, args = list(a = 1.5, b = 0, c = .10, d = .75), aes(colour = "a = 1.5, b = 0, c = .10, d = .75"), 
+                linewidth = .8) +
+  geom_function(fun = irf_4PL, args = list(a = 1, b = - 1, c = .10, d = .85), aes(colour = "a = 1, b = - 1, c = .10, d = .85"), 
+                linewidth = .8)+
   scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
   theme(text = element_text(family = "Times New Roman",
                             size = 14)) +
@@ -150,6 +164,7 @@ four_pl <- ggplot(data.frame(x = theta),aes(x = x)) +
   theme(panel.background = element_rect(fill='transparent'), 
         plot.background = element_rect(fill='transparent', color=NA), 
         legend.background = element_rect(fill='transparent'),
+        legend.text=element_text(size=14), 
         legend.position=c(.8,.25))
 
 
@@ -165,7 +180,8 @@ ggsave("four_pl.png",
 ###### Symmetric Example ######
 
 symmetric_irf <- ggplot(data.frame(x = theta),aes(x = x)) +
-  geom_function(fun = irf_4PL, color = "red") +
+  geom_function(fun = irf_4PL, color = "red", 
+                linewidth = .8) +
   scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
   theme(text = element_text(family = "Times New Roman",
                             size = 14)) +
@@ -176,6 +192,7 @@ symmetric_irf <- ggplot(data.frame(x = theta),aes(x = x)) +
   theme(panel.background = element_rect(fill='transparent'), 
         plot.background = element_rect(fill='transparent', color=NA), 
         legend.background = element_rect(fill='transparent'),
+        legend.text=element_text(size=14),
         legend.position=c(.8,.25))
 
 
@@ -191,8 +208,10 @@ ggsave("symmetric_irf.png",
 ###### Symmetric Example ######
 
 asymmetric_irf <- ggplot(data.frame(x = theta),aes(x = x)) +
-   geom_function(fun = irf_LPE, args = list(ksi = .5 ), aes(colour = "\U03BE = .5")) +
-   geom_function(fun = irf_LPE, args = list(ksi = 2), aes(colour = "\U03BE = 2")) +
+   geom_function(fun = irf_LPE, args = list(ksi = .5 ), aes(colour = "\U03BE = .5"), 
+                 linewidth = .8) +
+   geom_function(fun = irf_LPE, args = list(ksi = 2), aes(colour = "\U03BE = 2"), 
+                 linewidth = .8) +
    scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
    geom_vline(xintercept = 0, linetype = 3) +
    geom_hline(yintercept = .5, linetype = 3) +
@@ -205,6 +224,7 @@ asymmetric_irf <- ggplot(data.frame(x = theta),aes(x = x)) +
    theme(panel.background = element_rect(fill='transparent'), 
          plot.background = element_rect(fill='transparent', color=NA), 
          legend.background = element_rect(fill='transparent'),
+         legend.text=element_text(size=14),
          legend.position=c(.8,.25))
 
 
@@ -220,8 +240,10 @@ ggsave("asymmetric_irf.png",
 ####### CLL vs 3pl ######
 
 CLL_vs_3pl <- ggplot(data.frame(x = theta),aes(x = x)) +
-   geom_function(fun = irf_CLL, args = list(a = .6,b = .3), aes(colour = "CLL")) +
-   geom_function(fun = irf_4PL, args = list(c = .10), aes(colour = "3PL, c = .10")) +
+   geom_function(fun = irf_CLL, args = list(a = .6,b = .3), aes(colour = "CLL"), 
+                 linewidth = .8) +
+   geom_function(fun = irf_4PL, args = list(c = .10), aes(colour = "3PL, c = .10"), 
+                 linewidth = .8) +
    scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
    theme(text = element_text(family = "Times New Roman",
                              size = 14)) +
@@ -233,6 +255,7 @@ CLL_vs_3pl <- ggplot(data.frame(x = theta),aes(x = x)) +
    theme(panel.background = element_rect(fill='transparent'), 
          plot.background = element_rect(fill='transparent', color=NA), 
          legend.background = element_rect(fill='transparent'),
+         legend.text=element_text(size=14),
          legend.position=c(.8,.25))
 
 
@@ -253,8 +276,10 @@ ggsave("CLL_vs_3pl.png",
 ###### NLL vs 3plu ######
 
 CLL_vs_3plU <- ggplot(data.frame(x = theta),aes(x = x)) +
-   geom_function(fun = irf_NLL, args = list(a = .6,b = -.3), aes(colour = "CLL")) +
-   geom_function(fun = irf_4PL, args = list(d = .9), aes(colour = "3PLu, d = .9")) +
+   geom_function(fun = irf_NLL, args = list(a = .6,b = -.3), aes(colour = "CLL"), 
+                 linewidth = .8) +
+   geom_function(fun = irf_4PL, args = list(d = .9), aes(colour = "3PLu, d = .9"), 
+                 linewidth = .8) +
    scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
    theme(text = element_text(family = "Times New Roman",
                              size = 14)) +
@@ -266,6 +291,7 @@ CLL_vs_3plU <- ggplot(data.frame(x = theta),aes(x = x)) +
    theme(panel.background = element_rect(fill='transparent'), 
          plot.background = element_rect(fill='transparent', color=NA), 
          legend.background = element_rect(fill='transparent'),
+         legend.text=element_text(size=14),
          legend.position=c(.8,.25))
 
 
@@ -284,9 +310,12 @@ ggsave("CLL_vs_3plU.png",
 
 
 Stukel_fig <- ggplot(data.frame(x = theta),aes(x = x)) +
-   geom_function(fun = irf_stukel_vec, args = list(alpha1 = 1), aes(colour = "la = 0, ua = 1")) +
-   geom_function(fun = irf_stukel_vec, args = list(alpha2 = -1), aes(colour = "la = -1, ua = 0")) +
-   geom_function(fun = irf_stukel_vec, args = list(alpha1 = .5, alpha2 = -1.5), aes(colour = "la = -1.5, ua = .5")) +
+   geom_function(fun = irf_stukel_vec, args = list(alpha1 = 1), aes(colour = "la = 0, ua = 1"), 
+                 linewidth = .8) +
+   geom_function(fun = irf_stukel_vec, args = list(alpha2 = -1), aes(colour = "la = -1, ua = 0"), 
+                 linewidth = .8) +
+   geom_function(fun = irf_stukel_vec, args = list(alpha1 = .5, alpha2 = -1.5), aes(colour = "la = -1.5, ua = .5"), 
+                 linewidth = .8) +
    scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
    theme(text = element_text(family = "Times New Roman",
                              size = 14)) +
@@ -298,6 +327,7 @@ Stukel_fig <- ggplot(data.frame(x = theta),aes(x = x)) +
    theme(panel.background = element_rect(fill='transparent'), 
          plot.background = element_rect(fill='transparent', color=NA), 
          legend.background = element_rect(fill='transparent'),
+         legend.text=element_text(size=14),
          legend.position=c(.8,.25))
 
 
@@ -348,7 +378,8 @@ letters <- item_summaries %>%
    theme(text = element_text(family = "Times New Roman",
                              size = 14),
          panel.background = element_rect(fill='transparent'), 
-         plot.background = element_rect(fill='transparent', color=NA), 
+         plot.background = element_rect(fill='transparent', color=NA),
+         legend.text=element_text(size=14), 
          legend.background = element_rect(fill='transparent'))
 
 
@@ -373,7 +404,8 @@ rotate <- item_summaries %>%
    theme(text = element_text(family = "Times New Roman",
                              size = 14),
          panel.background = element_rect(fill='transparent'), 
-         plot.background = element_rect(fill='transparent', color=NA), 
+         plot.background = element_rect(fill='transparent', color=NA),
+         legend.text=element_text(size=14), 
          legend.background = element_rect(fill='transparent'))
 
 
