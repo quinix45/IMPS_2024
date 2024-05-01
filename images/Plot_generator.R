@@ -372,7 +372,8 @@ letters <- item_summaries %>%
    filter(Info_crit == "looic") %>% 
    filter(item %in% c("letter.7", "letter.33", "letter.34", "letter.58")) %>% 
    ggplot(aes(x = item, y = sum_values, color = Model)) +
-   geom_point(aes(col = Model)) +
+   geom_point(aes(col = Model, shape = Model), size = 3) +
+   coord_flip() +
    labs(y = "LOOcv",
         x = "Items") +
    theme(text = element_text(family = "Times New Roman",
@@ -398,7 +399,8 @@ rotate <- item_summaries %>%
    filter(Info_crit == "looic") %>% 
    filter(item %in% c("rotate.3", "rotate.4", "rotate.6", "rotate.8")) %>% 
    ggplot(aes(x = item, y = sum_values, color = Model)) +
-   geom_point(aes(col = Model)) +
+   geom_point(aes(col = Model, shape = Model), size = 3) +
+   coord_flip() + 
    labs(y = "LOOcv",
         x = "Items") +
    theme(text = element_text(family = "Times New Roman",

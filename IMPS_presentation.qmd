@@ -313,7 +313,7 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 
 </br>
 
-<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models with hierarchical priors perform reasonably well even when $N = 100$ (k&ouml;nig et al., 2020).
+<i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models with hierarchical priors perform reasonably well even when $N = 100$ (K&ouml;nig et al., 2020).
 :::
 
 
@@ -356,7 +356,7 @@ All the IRT models presented so far generate IRFs that are **symmetric**.
 :::col
 ::: {.fragment .fade-in fragment-index="2"}
 
-Samejima (2000) was the first scholar to propose the use of **asymmetric** IRT models with her logistic positive exponent (LPE) model.
+Samejima (1995) was the first scholar to propose the use of **asymmetric** IRT models with her logistic positive exponent (LPE) model.
 
 
 </br>
@@ -370,7 +370,7 @@ Samejima (2000) was the first scholar to propose the use of **asymmetric** IRT m
 
 ## Simple Asymmetric IRT Models
 
-The LPE has shown to have some identification issues in simulation studies (Lee & Bolt, 2018), especially in small sample sizes. Two recently proposed asymmetric IRT models (Shim et al., 2023) may help address this issue:
+The LPE has shown to have some identification issues in simulation studies (Lee & Bolt, 2018), especially in small sample sizes. Two recently proposed asymmetric IRT models (Shim et al., 2023a; 2023b) may help address this issue:
 
 ::: {layout-ncol="2"}
 
@@ -452,7 +452,7 @@ The core of **BMA** is the *expected log pointwise predictive density*, $ELPD = 
 
 ::: {.fragment .fade-in fragment-index="5"}
 <center>
-**Idea:** How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) in the context of IRT? 
+**Idea:** How much better can BMA of simple symmetric and asymmetric models do compared to model selection (MS) and non parametric IRT? 
 </center>
 :::
 
@@ -519,7 +519,7 @@ For comparison, IRFs will also be averaged at **theoretical quantiles** of the s
 
 
 
-## {}
+## Reseach Questions
 
 
 </br>
@@ -544,7 +544,7 @@ recovery?
 </br>
 
 ::: {.fragment .fade-in fragment-index="4"}
-- How will **stacking weights** and **BMA+ weights** behave? 
+- How will **stacking weights** and **BMA+ weights** compare? 
 :::
 
 
@@ -854,7 +854,7 @@ $n =$ number of MCMC draws (6000).
 
 
 
-# Fin 🤷
+# Fin 
 
 
 

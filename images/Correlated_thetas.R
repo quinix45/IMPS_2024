@@ -30,14 +30,15 @@ fit_3pl <- mirt(dat,
                 technical = list(NCYCLES = 5000))
 
 
-dat <- data.frame("theta_2pl" = fscores(fit_2pl), 
-                  "theta_3pl" = fscores(fit_3pl))
+dat <- data.frame(theta_2pl = fscores(fit_2pl)[,1], 
+                  theta_3pl = fscores(fit_3pl)[,1])
 
 
 theta_plot <- ggplot(dat, aes(x = theta_2pl, y = theta_3pl)) +
               geom_point() +
   theme(text = element_text(family = "Times New Roman",
                             size = 14)) +
+geom_abline(intercept = 0, slope = 1, color = "red")+
   labs(x = "\u03b8 2PL",
        y = "\u03b8 3PL") +
   theme(panel.background = element_rect(fill='transparent'), 
