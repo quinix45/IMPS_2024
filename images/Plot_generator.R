@@ -275,8 +275,8 @@ ggsave("CLL_vs_3pl.png",
 
 ###### NLL vs 3plu ######
 
-CLL_vs_3plU <- ggplot(data.frame(x = theta),aes(x = x)) +
-   geom_function(fun = irf_NLL, args = list(a = .6,b = -.3), aes(colour = "CLL"), 
+NLL_vs_3plU <- ggplot(data.frame(x = theta),aes(x = x)) +
+   geom_function(fun = irf_NLL, args = list(a = .6,b = -.3), aes(colour = "NLL"), 
                  linewidth = .8) +
    geom_function(fun = irf_4PL, args = list(d = .9), aes(colour = "3PLu, d = .9"), 
                  linewidth = .8) +
@@ -295,11 +295,11 @@ CLL_vs_3plU <- ggplot(data.frame(x = theta),aes(x = x)) +
          legend.position=c(.8,.25))
 
 
-print(CLL_vs_3plU)
+print(NLL_vs_3plU)
 
 
-ggsave("CLL_vs_3plU.png", 
-       CLL_vs_3plU,
+ggsave("NLL_vs_3plU.png", 
+       NLL_vs_3plU,
        width = 7, height = 4.5, dpi = 300, units = "in")
 
 
