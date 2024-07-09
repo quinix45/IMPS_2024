@@ -290,6 +290,11 @@ stack_weights <- lapply(item_elpd_list, stacking_weights)
 stack_matrix <- round(bind_rows(stack_weights), 3)
 names(stack_matrix) <- names(bma_matrix)
 
+
+
+weights_full_bma <-  c(004, .117, .136, .474, .000, .269)
+weights_full_stack <- c(.000, .000,  .509, .007, .000, .485)
+
 ## do kernel smoothing
 
 evalpoints <- qnorm(seq(0,1, by = .01))[2:100]
@@ -619,8 +624,6 @@ dat_long[which(loo_2NLL$diagnostics$pareto_k > .7), ]
 
 loo_compare(loo_1pl, loo_2pl, loo_1CLL, loo_2CLL, loo_1NLL, loo_2NLL)
 
-weights_full_bma
-weights_full_stack
 
 apply(bma_matrix, 1, which.max) %>% table
 4 / 35 # 1PL or 2PL
@@ -805,18 +808,18 @@ par(mfrow = c(1, 2),
     family = "Times New Roman")
 
 plot(qnorm(seq(.1, .9, by = .1)), quant_1pl_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], type = 'l',
-     ylim = c(-.2, .2), xlab = expression(theta), ylab = "Probability Difference from CLL2",
+     ylim = c(-.2, .2), xlab = expression(theta), ylab = "Probability Difference from 2CLL",
      main = "Individual Model Predictions", bty = 'l', lwd = 2, col = cols[1])
 lines(qnorm(seq(.1, .9, by = .1)), quant_2pl_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], lwd = 2, col = cols[2])
 lines(qnorm(seq(.1, .9, by = .1)), quant_CLL1_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], lwd = 2, col = cols[3])
 lines(qnorm(seq(.1, .9, by = .1)), quant_NLL1_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], lwd = 2, col = cols[4])
 lines(qnorm(seq(.1, .9, by = .1)), quant_NLL2_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], lwd = 2, col = cols[6])
 abline(h = 0, lty = 3, lwd = 1.5)
-legend("bottomright", legend = c("1PL", "2PL", "CLL", "NLL", "2NLL"),
+legend("bottomright", legend = c("1PL", "2PL", "1CLL", "1NLL", "2NLL"),
        col = cols[c(1, 2, 3, 4, 6)], lty = 1, bty = "n", lwd = 2)
 
 plot(qnorm(seq(.1, .9, by = .1)), prob_averaged_item_bma_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], type = 'l',
-     ylim = c(-.2, .2), xlab = expression(theta), ylab = "Probability Difference from CLL2",
+     ylim = c(-.2, .2), xlab = expression(theta), ylab = "Probability Difference from 2CLL",
      main = "Averaged Predictions", bty = 'l', lwd = 2, col = cols[7])
 lines(qnorm(seq(.1, .9, by = .1)), prob_averaged_item_stack_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], lwd = 2, col = cols[8])
 lines(qnorm(seq(.1, .9, by = .1)), prob_averaged_mod_bma_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], lwd = 2, col = cols[9])

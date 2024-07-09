@@ -362,7 +362,7 @@ Fabio Setti &amp; Leah Feuerstahler
 </section>
 <section id="estimation-and-sample-size-in-irt" class="slide level2">
 <h2>Estimation and Sample Size in IRT</h2>
-<p>The more item parameters are added to the model, the more flexible the item response functions (IRF).</p>
+<p>The more item parameters are added to the model, the more flexible the item response functions (IRFs).</p>
 <div class="fragment fade-in" data-fragment-index="1">
 <p>However, the additional parameters of the <strong>3PL</strong> and <strong>4PL</strong> tend to require large sample sizes (<span class="math inline">\(N \geq 1000\)</span>) to be stably estimated.</p>
 </div>
@@ -395,7 +395,7 @@ What about <strong>1PL</strong> and <strong>2PL</strong> models?
 </center>
 </div>
 <p><br></p>
-<div class="fragment fade-in" data-fragment-index="4">
+<div class="fragment fade-in absolute" data-fragment-index="4" style="top: 62px; left: 20px; ">
 <p><i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 1PL models showed good coverage when <span class="math inline">\(N = 100\)</span> and generally outperformed maximum likelihood <span class="citation" data-cites="Finch_French_2019">(<a href="#/references" role="doc-biblioref" onclick="">Finch &amp; French, 2019</a>)</span>.</p>
 <p><br></p>
 <p><i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i> 2PL models with hierarchical priors perform reasonably well even when <span class="math inline">\(N = 100\)</span> <span class="citation" data-cites="Konig_etal_2020">(<a href="#/references" role="doc-biblioref" onclick="">König et al., 2020</a>)</span>.</p>
@@ -421,7 +421,7 @@ What about <strong>1PL</strong> and <strong>2PL</strong> models?
 </section>
 <section id="simple-asymmetric-irt-models" class="slide level2">
 <h2>Simple Asymmetric IRT Models</h2>
-<p>Most asymmetric models include asymmetry parameters that are hard to estimate in small sample sizes <span class="citation" data-cites="Goncalves_etal_2023 Lee_Bolt_2018a">(e.g., <a href="#/references" role="doc-biblioref" onclick="">Gonçalves et al., 2023</a>; <a href="#/references" role="doc-biblioref" onclick="">Lee &amp; Bolt, 2018</a>)</span> Two recently proposed asymmetric IRT models <span class="citation" data-cites="Shim_etal_2023a Shim_etal_2023">(<a href="#/references" role="doc-biblioref" onclick="">Shim et al., 2023a</a>, <a href="#/references" role="doc-biblioref" onclick="">2023b</a>)</span> may help address this issue:</p>
+<p>Most asymmetric models include asymmetry parameters that are hard to estimate in small sample sizes <span class="citation" data-cites="Goncalves_etal_2023 Lee_Bolt_2018a Verkuilen_Johnson_2024a">(e.g., <a href="#/references" role="doc-biblioref" onclick="">Gonçalves et al., 2023</a>; <a href="#/references" role="doc-biblioref" onclick="">Lee &amp; Bolt, 2018</a>; <a href="#/references" role="doc-biblioref" onclick="">Verkuilen &amp; Johnson, 2024</a>)</span> Two recently proposed asymmetric IRT models <span class="citation" data-cites="Shim_etal_2023a Shim_etal_2023">(<a href="#/references" role="doc-biblioref" onclick="">Shim et al., 2023a</a>, <a href="#/references" role="doc-biblioref" onclick="">2023b</a>)</span> may help address this issue:</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -455,7 +455,7 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </div>
 <p><br></p>
 <div class="fragment fade-in" data-fragment-index="2">
-<p><strong>Model averaging</strong> takes into account model uncertainty by weighting a set of candidate models according to their relative plausibility.</p>
+<p><strong>Model averaging</strong> takes into account model uncertainty by <strong>weighting</strong> a set of candidate models according to their relative plausibility.</p>
 </div>
 <div class="fragment fade-in" data-fragment-index="3">
 <p>The core of the <strong>BMA</strong> approach we implement is an approximation of leave-one-out cross validation <span class="citation" data-cites="Vehtari_etal_2017">(<span class="math inline">\(LOO_{CV}\)</span>; <a href="#/references" role="doc-biblioref" onclick="">Vehtari et al., 2017</a>)</span>.</p>
@@ -521,7 +521,7 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </section>
 <section id="empirical-example" class="slide level2">
 <h2>Empirical Example</h2>
-<p>The Bond’s Logical Operations Test <span class="citation" data-cites="Bond_Fox_2007">(BLOT; <a href="#/references" role="doc-biblioref" onclick="">Bond &amp; Fox, 2007</a>)</span> dataset from the PsychTools package <span class="citation" data-cites="Revelle_2024">(<a href="#/references" role="doc-biblioref" onclick="">Revelle, 2024</a>)</span>, which includes <strong>150 participants</strong> and <strong>35 items</strong>. We fit the 1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL.</p>
+<p>We fit the 1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL with the <code>brms</code> package <span class="citation" data-cites="Burkner_2017">(<a href="#/references" role="doc-biblioref" onclick="">Bürkner, 2017</a>)</span> to the Bond’s Logical Operations Test <span class="citation" data-cites="Bond_Fox_2007">(BLOT; <a href="#/references" role="doc-biblioref" onclick="">Bond &amp; Fox, 2007</a>)</span> dataset from the <code>PsychTools</code> package <span class="citation" data-cites="Revelle_2024">(<a href="#/references" role="doc-biblioref" onclick="">Revelle, 2024</a>)</span>, which includes <strong>150 participants</strong> and <strong>35 items</strong>.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -540,9 +540,9 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 </div>
 </div>
 </section>
-<section id="simulation-data-generation" class="slide level2">
-<h2>Simulation: Data Generation</h2>
-<p>Most data generating conditions were designed to be “realistic”, where the true data generating model is not included in the set of candidate models. There were <strong>4 data generating conditions</strong>:</p>
+<section id="simulation" class="slide level2">
+<h2>Simulation</h2>
+<p>Most data generating condition purposely introduced some type of model misspecification. There were <strong>4 data generating conditions</strong>:</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -573,7 +573,7 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 <li>2 sample sizes (<em>N</em> = 100, 250)</li>
 <li>2 test lengths (<em>I</em> = 10, 20)</li>
 <li>100 replications (<em>R</em>)</li>
-<li>9 quantiles (<em>q</em> = .1,…,.9)</li>
+<li>9 quantiles (<em>q</em> = .10,…,.90)</li>
 </ul>
 </div>
 </div>
@@ -648,6 +648,9 @@ Can we do better with <strong>Bayesian model averaging (BMA)</strong>?
 <div id="ref-Bond_Fox_2007" class="csl-entry" role="listitem">
 Bond, T. G., &amp; Fox, C. M. (2007). <em>Applying the <span>Rasch Model</span>: <span>Fundamental Measurement</span> in the <span>Human Sciences</span>, <span>Second Edition</span></em> (2nd ed.). Psychology Press. <a href="https://doi.org/10.4324/9781410614575">https://doi.org/10.4324/9781410614575</a>
 </div>
+<div id="ref-Burkner_2017" class="csl-entry" role="listitem">
+Bürkner, P.-C. (2017). Brms: An <span>R</span> package for bayesian multilevel models using stan. <em>Journal of Statistical Software</em>, <em>80</em>, 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>
+</div>
 <div id="ref-Drasgow_1989" class="csl-entry" role="listitem">
 Drasgow, F. (1989). An <span>Evaluation</span> of <span>Marginal Maximum Likelihood Estimation</span> for the <span>Two-Parameter Logistic Model</span>. <em>Applied Psychological Measurement</em>, <em>13</em>(1), 77–90. <a href="https://doi.org/10.1177/014662168901300108">https://doi.org/10.1177/014662168901300108</a>
 </div>
@@ -678,6 +681,9 @@ Shim, H., Bonifay, W., &amp; Wiedermann, W. (2023b). Parsimonious item response 
 <div id="ref-Vehtari_etal_2017" class="csl-entry" role="listitem">
 Vehtari, A., Gelman, A., &amp; Gabry, J. (2017). Practical bayesian model evaluation using leave-one-out cross-validation and <span>WAIC</span>. <em>Statistics and Computing</em>, <em>27</em>(5), 1413–1432. <a href="https://doi.org/10.1007/s11222-016-9696-4">https://doi.org/10.1007/s11222-016-9696-4</a>
 </div>
+<div id="ref-Verkuilen_Johnson_2024a" class="csl-entry" role="listitem">
+Verkuilen, J., &amp; Johnson, P. J. (2024). Gumbel-<span>Reverse Gumbel</span> (<span>GRG</span>) <span>Model</span>: <span>A New Asymmetric IRT Model</span> for <span>Binary Data</span>. In M. Wiberg, J.-S. Kim, H. Hwang, H. Wu, &amp; T. Sweet (Eds.), <em>Quantitative <span>Psychology</span></em> (pp. 165–175). Springer Nature Switzerland. <a href="https://doi.org/10.1007/978-3-031-55548-0_16">https://doi.org/10.1007/978-3-031-55548-0_16</a>
+</div>
 <div id="ref-Yao_etal_2018" class="csl-entry" role="listitem">
 Yao, Y., Vehtari, A., Simpson, D., &amp; Gelman, A. (2018). Using stacking to average bayesian predictive distributions (with discussion). <em>Bayesian Analysis</em>, <em>13</em>(3), 917–1007. <a href="https://doi.org/10.1214/17-BA1091">https://doi.org/10.1214/17-BA1091</a>
 </div>
@@ -691,44 +697,33 @@ Zhang, J., Zhang, Y.-Y., Tao, J., &amp; Chen, M.-H. (2022). Bayesian item respon
 <h1>Appendix</h1>
 
 </section>
-<section id="priors-and-outcome" class="slide level2">
-<h2>Priors and Outcome</h2>
+<section id="model-priors" class="slide level2">
+<h2>Model Priors</h2>
+<center>
+<p>Model estimation used the partial pooling approach in the estimation of model parameters (i.e., random intercepts/slopes)</p>
+<p><br> <br></p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <center>
-<strong>Priors</strong>
-</center>
-<p>Model estimation used the partial pooling approach (i.e., random intercepts/slopes)</p>
-<p><br> <br></p>
-<center>
-<div class="fragment fade-in" data-fragment-index="1">
 <p><span class="math inline">\(log(\bar{a}) = N(0, .5)\)</span></p>
-<p><span class="math inline">\(\sigma_{log(\bar{a})} = Exponential(3)\)</span></p>
+<p><span class="math inline">\(\sigma_{log(\bar{a})} = \mathrm{Exponential}(3)\)</span></p>
 <p><span class="math inline">\(\bar{b} = N(0, 1)\)</span></p>
-<p><span class="math inline">\(\sigma_{\bar{b}} = Lognormal(.25, .5)\)</span></p>
+<p><span class="math inline">\(\sigma_{\bar{b}} = \mathrm{Lognormal}(.25, .5)\)</span></p>
 <p><span class="math inline">\(\bar{\theta} = 0\)</span></p>
 <p><span class="math inline">\(\sigma_\bar{\theta} = 1\)</span></p>
-</div>
 </center>
 </div>
-<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="fragment fade-in" data-fragment-index="2">
-<center>
-<strong>Outcome</strong>
-</center>
-<p>The only outcome will be the root mean squared error (<strong>RMSE</strong>) between the data generating IRF and estimated IRF:</p>
-</div>
-<p><br> <br></p>
-<div class="fragment fade-in" data-fragment-index="3">
-<p><span class="math inline">\(i =\)</span> item.</p>
-<p><span class="math inline">\(q =\)</span> quantile (either empirical or theoretical) of <span class="math inline">\(\theta\)</span> distribution.</p>
-<p><span class="math inline">\(n =\)</span> number of MCMC draws (6000).</p>
+<div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/model_priors.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
 </div>
 </div>
 </div>
 </div>
-</section>
+</center></section>
 <section id="irf-averaging-scheme" class="slide level2">
 <h2>IRF Averaging Scheme</h2>
 <p><br></p>
@@ -742,11 +737,15 @@ Zhang, J., Zhang, Y.-Y., Tao, J., &amp; Chen, M.-H. (2022). Bayesian item respon
 <p><strong>4. Averaged distribution of <span class="math inline">\(P(Y = 1|\theta_q)\)</span>:</strong> sample from each model distribution estimated in step 2 <strong>in proportion to model weight</strong>.</p>
 </center>
 </section>
+<section id="all-blot-items-predictions" class="slide level2">
+<h2>All BLOT items Predictions</h2>
+
+<img data-src="images/empirical_example/Real%20Data%20Predictions%20All%20Items.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="parameter-generating-distributions-for-simulation" class="slide level2">
 <h2>Parameter Generating Distributions for Simulation</h2>
 <p><br></p>
 
-<img data-src="images/Tab_datagen.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="images/Tab_datagen.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
 <section id="loo-diffrencese-for-i-10" class="slide level2">
 <h2>LOO diffrence/SE for <em>I</em> = 10</h2>
 
@@ -754,7 +753,15 @@ Zhang, J., Zhang, Y.-Y., Tao, J., &amp; Chen, M.-H. (2022). Bayesian item respon
 <section id="loo-diffrencese-for-i-20" class="slide level2">
 <h2>LOO diffrence/SE for <em>I</em> = 20</h2>
 
-<img data-src="images/loo_diff_20_it.png" class="quarto-figure quarto-figure-center r-stretch"><div class="quarto-auto-generated-content">
+<img data-src="images/loo_diff_20_it.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="comparison-of-item-averaging-at-theoretical-and-empirical-quantiles-n-250" class="slide level2">
+<h2>Comparison of Item Averaging at Theoretical and Empirical Quantiles (<em>N</em> = 250)</h2>
+
+<img data-src="images/Emp_vs_Theo_250_IA.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="comparison-of-test-averaging-at-theoretical-and-empirical-quantiles-n-250" class="slide level2">
+<h2>Comparison of Test Averaging at Theoretical and Empirical Quantiles (<em>N</em> = 250)</h2>
+
+<img data-src="images/Emp_vs_Theo_250_MA.png" class="quarto-figure quarto-figure-center r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>IMPS 2024</p>
 </div>

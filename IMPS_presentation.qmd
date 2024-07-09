@@ -28,7 +28,7 @@ editor: source
 
 ## Estimation and Sample Size in IRT
 
-The more item parameters are added to the model, the more flexible the item response functions (IRF). 
+The more item parameters are added to the model, the more flexible the item response functions (IRFs). 
 
 ::: {.fragment .fade-in fragment-index="1"}
 However, the additional parameters of the **3PL** and **4PL** tend to require large sample sizes ($N \geq 1000$) to be stably estimated.
@@ -75,7 +75,7 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 
 </br>
 
-::: {.fragment .fade-in fragment-index="4"}
+::: {.fragment .fade-in fragment-index="4" .absolute top=62 left=20}
 <i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i></i> 1PL models showed good coverage when $N = 100$ and generally outperformed maximum likelihood [@Finch_French_2019].
 
 
@@ -105,7 +105,7 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 
 ## Simple Asymmetric IRT Models
 
-Most asymmetric models include asymmetry parameters that are hard to estimate in small sample sizes [e.g., @Goncalves_etal_2023; @Lee_Bolt_2018a] Two recently proposed asymmetric IRT models [@Shim_etal_2023a; @Shim_etal_2023] may help address this issue:
+Most asymmetric models include asymmetry parameters that are hard to estimate in small sample sizes [e.g., @Goncalves_etal_2023; @Lee_Bolt_2018a; @Verkuilen_Johnson_2024a] Two recently proposed asymmetric IRT models [@Shim_etal_2023a; @Shim_etal_2023] may help address this issue:
 
 ::: {layout-ncol="2"}
 
@@ -160,7 +160,7 @@ Although the NLL and CLL may approximate more complex models, complex IRFs remai
 </br>
 
 ::: {.fragment .fade-in fragment-index="2"}
-**Model averaging** takes into account model uncertainty by weighting a set of candidate models according to their relative plausibility.
+**Model averaging** takes into account model uncertainty by **weighting** a set of candidate models according to their relative plausibility.
 :::
 
 ::: {.fragment .fade-in fragment-index="3"}
@@ -235,10 +235,9 @@ However, the same person will get a different $\theta$ depending on the model th
 :::
 
 
-
 ## Empirical Example 
 
-The Bond's Logical Operations Test [BLOT\; @Bond_Fox_2007] dataset from the PsychTools package [@Revelle_2024], which includes **150 participants** and **35 items**. We fit the 1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL. 
+We fit the 1PL, 2PL, 1CLL, 2CLL, 1NLL, 2NLL with the `brms` package [@Burkner_2017] to the Bond's Logical Operations Test [BLOT\; @Bond_Fox_2007] dataset from the `PsychTools` package [@Revelle_2024], which includes **150 participants** and **35 items**. 
 
 ::: {layout-ncol="2"}
 
@@ -262,9 +261,9 @@ The Bond's Logical Operations Test [BLOT\; @Bond_Fox_2007] dataset from the Psyc
 :::
 :::
 
-## Simulation: Data Generation
+## Simulation 
 
-Most data generating conditions were designed to be "realistic", where the true data generating model is not included in the set of candidate models. There were **4 data generating conditions**:
+Most data generating condition purposely introduced some type of model misspecification. There were **4 data generating conditions**:
 
 ::: {layout-ncol="2"}
 
@@ -310,7 +309,7 @@ Most data generating conditions were designed to be "realistic", where the true 
 - 2 sample sizes (*N* = 100, 250)
 - 2 test lengths (*I* = 10, 20)
 - 100 replications (*R*)
-- 9 quantiles (*q* = .1,...,.9)
+- 9 quantiles (*q* = .10,...,.90)
 :::
 
 
@@ -394,71 +393,40 @@ $$RMSE_{q} = \sqrt{\frac{1}{100}\sum_{r=1}^{100}\frac{1}{I}\sum_{i = 1}^{I}[P_r(
 # Appendix
 
 
-## Priors and Outcome
-
-
-::: {layout-ncol="2"}
-
-:::col
-
-<center> **Priors** </center>
-
-Model estimation used the partial pooling approach (i.e., random intercepts/slopes)
-
-</br>
-</br>
+## Model Priors 
 
 <center>
 
-::: {.fragment .fade-in fragment-index="1"}  
+Model estimation used the partial pooling approach in the estimation of model parameters (i.e., random intercepts/slopes)
+
+</br>
+</br>
+
+::: {layout-ncol="2"}
+:::col
+
+<center>
 
 $log(\bar{a}) = N(0, .5)$
 
-$\sigma_{log(\bar{a})} = Exponential(3)$
+$\sigma_{log(\bar{a})} = \mathrm{Exponential}(3)$
 
 $\bar{b} = N(0, 1)$
 
-$\sigma_{\bar{b}} = Lognormal(.25, .5)$
+$\sigma_{\bar{b}} = \mathrm{Lognormal}(.25, .5)$
 
 $\bar{\theta} = 0$
 
 $\sigma_\bar{\theta} = 1$
 
-:::
-
 </center>
-
 :::
-
 
 :::col
 
-::: {.fragment .fade-in fragment-index="2"}  
-
-<center> **Outcome** </center>
-
-The only outcome will be the root mean squared error (**RMSE**) between the data generating IRF and estimated IRF:
-
-:::
-
-</br>
-</br>
-
-::: {.fragment .fade-in fragment-index="3"}  
-
-
-
-$i =$ item.
-
-$q =$ quantile (either empirical or theoretical) of $\theta$ distribution. 
-
-$n =$ number of MCMC draws (6000). 
-
-:::
-
+![](images/model_priors.png){fig-align="center"}
 :::
 :::
-
 
 
 
@@ -492,11 +460,15 @@ $n =$ number of MCMC draws (6000).
 
 </center>
 
+## All BLOT items Predictions
+
+![](images/empirical_example/Real Data Predictions All Items.png){fig-align="center"}
+
 ## Parameter Generating Distributions for Simulation
 
 </br>
 
-![](images/Tab_datagen.png){fig-align="center"}
+![](images/Tab_datagen.png){fig-align="center" width=60%}
 
 
 
@@ -511,3 +483,11 @@ $n =$ number of MCMC draws (6000).
 
 ![](images/loo_diff_20_it.png){fig-align="center"}
 
+## Comparison of Item Averaging at Theoretical and Empirical Quantiles (*N* = 250)
+
+
+![](images/Emp_vs_Theo_250_IA.png){fig-align="center"}
+
+## Comparison of Test Averaging at Theoretical and Empirical Quantiles (*N* = 250)
+
+![](images/Emp_vs_Theo_250_MA.png){fig-align="center"}
