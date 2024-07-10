@@ -357,32 +357,29 @@ $$RMSE_{q} = \sqrt{\frac{1}{100}\sum_{r=1}^{100}\frac{1}{I}\sum_{i = 1}^{I}[P_r(
 ## Summary of Results
 
 ::: {.fragment .fade-in fragment-index="1"}  
-- BMA offers better IRF recovery compared to both MS and KS.
+- Item weights may provide useful insight into individual item behavior. 
 :::
 
 </br>
 
 ::: {.fragment .fade-in fragment-index="2"}  
-- BMA's advantage over MS is more noticeable at low/high quantiles, with smaller sample sizes, and with less items.  
+- Either item weights or test weights can provide a stable method of detecting and estimating asymmetry in small sample sizes. 
 :::
 
 </br>
 
 ::: {.fragment .fade-in fragment-index="3"}  
-- Stacking weights and BMA+ weights behave differently but offer comparable IRF recovery. 
+- Item level averaging, followed by test level averaging, consistently offered better IRF recovery. 
 :::
 
 </br>
 
 ::: {.fragment .fade-in fragment-index="4"}  
-- Empirical quantiles seemed to offer slight improvements over theoretical quantiles.
+- BMA+ weights showed better performance for IA, while stacking weights and BMA + weights performed similarly in the case of TA. 
 :::
 
 </br>
 
-:::{.fragment .fade-in fragment-index="5"}  
-- The 2PL gained weight as sample size and number of items increased.
-:::
 
 
 ## References

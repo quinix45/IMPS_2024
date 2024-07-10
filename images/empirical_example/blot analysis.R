@@ -849,7 +849,9 @@ cols <- c("#999999", #1
 png(filename = "Real Data Predictions All Items.png", width = 24, height = 24, 
     units = "in", res = 300)
 
-par(mfrow = c(7, 5))
+par(mfrow = c(7, 5),
+    bg = NA,
+    family = "Times New Roman")
 
 for(i in 1:35){
   plot(qnorm(seq(.1, .9, by = .1)), quant_1pl_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], type = 'l',
@@ -860,7 +862,7 @@ for(i in 1:35){
   lines(qnorm(seq(.1, .9, by = .1)), quant_NLL1_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], lwd = 2, col = cols[4])
   lines(qnorm(seq(.1, .9, by = .1)), quant_NLL2_theo_mean[i, ] - quant_CLL2_theo_mean[i, ], lwd = 2, col = cols[6])
   abline(h = 0, lty = 3, lwd = 1.5)
-  if(i == 1) legend("bottomright", legend = c("1PL", "2PL", "CLL", "NLL", "2NLL"),
+  if(i == 1) legend("bottomright", legend = c("1PL", "2PL", "1CLL", "1NLL", "2NLL"),
                     col = cols[c(1, 2, 3, 4, 6)], lty = 1, bty = "n", lwd = 2)
 }
 

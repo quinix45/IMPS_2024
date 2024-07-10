@@ -128,5 +128,38 @@ ggsave("Stukel_fig.png",
        Stukel_fig,
        width = 7, height = 4.5, dpi = 300, units = "in")
 
+####### Prior viz for Appendix ########
 
+model_priors <- ggplot()+
+   stat_function(fun = dnorm, args = c(mean = 0, sd =.5),
+                 aes(color = "log(a)")) +
+   stat_function(fun = dexp, args = c(rate = 3), 
+                 aes(color = "sigma(a)")) +
+   stat_function(fun = dnorm, args = c(mean = 0, sd = 1), 
+                 aes(color = "b")) +
+   stat_function(fun = dlnorm, args = c(meanlog = .25, sdlog = .5), 
+                 aes(color = "sigma(b)")) +
+   scale_x_continuous(limits = c(-2, 4.2),
+                      expand = c(0, 0)) +
+   scale_y_continuous(limits = c(0,2.7), expand = c(0, 0)) +
+   ylab("Density") +
+   xlab("Prior Value") +
+   labs(colour = "Parameter") +
+   theme(text = element_text(colour = "black"),
+         strip.text = element_text(face = "bold"),
+         strip.background = element_blank(),
+         panel.background = element_rect(fill='transparent'), 
+         plot.background = element_rect(fill='transparent', color=NA), 
+         panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(), 
+         legend.background = element_rect(fill='transparent'),
+         axis.text = element_text(family = "Times New Roman", 
+                                  colour = "black"))
+
+print(model_priors)
+
+
+ggsave("model_priors.png", 
+       model_priors,
+       width = 7, height = 4.5, dpi = 300, units = "in")
 
