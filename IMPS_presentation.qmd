@@ -7,6 +7,7 @@ title-slide-attributes:
    data-background-opacity: 100%
 
 author: "Fabio Setti & Leah Feuerstahler"
+institute: "Fordham University"
 bibliography: IMPS presetnation bibliography.bib
 csl: apa.csl
 format:
@@ -37,7 +38,7 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 </br>
 
 ::: {.fragment .fade-in fragment-index="2"}
-<center>  What about **1PL** and **2PL** models? </center>
+<center>  We will be focusing on **1PL** and **2PL** models </center>
 :::
 
 </br>
@@ -47,7 +48,7 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 
 :::col
 
-::: {.fragment .fade-in fragment-index="2"}
+::: {.fragment .fade-in fragment-index="3"}
 <center> **Maximum Likelihood** </center>
 :::
 
@@ -69,13 +70,13 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 
 :::col
 
-::: {.fragment .fade-in fragment-index="2"}
+::: {.fragment .fade-in fragment-index="3"}
 <center> **Markov Chain Monte Carlo** </center>
 :::
 
 </br>
 
-::: {.fragment .fade-in fragment-index="4" .absolute top=62 left=20}
+::: {.fragment .fade-in fragment-index="3" .absolute top=62 left=20}
 <i class="fa fa-solid fa-thumbs-up" style="color: #9B3922;"></i></i> 1PL models showed good coverage when $N = 100$ and generally outperformed maximum likelihood [@Finch_French_2019].
 
 
@@ -88,7 +89,7 @@ However, the additional parameters of the **3PL** and **4PL** tend to require la
 :::
 :::
 
-::: {.fragment .fade-in fragment-index="2"}
+::: {.fragment .fade-in fragment-index="3"}
 <style>
 .vl {
   border-left: 3px solid #9B3922;
@@ -130,7 +131,7 @@ $$ P(Y = 1| \theta) = 1 - \exp[-\exp[a(\theta - b)]]$$
 
 
 :::col
-::: {.fragment .fade-in fragment-index="2"}
+::: {.fragment .fade-in fragment-index="1"}
 <center> 
 
 **Negative Log-Log (NLL)**
@@ -164,14 +165,35 @@ Although the NLL and CLL may approximate more complex models, complex IRFs remai
 :::
 
 ::: {.fragment .fade-in fragment-index="3"}
-The core of the **BMA** approach we implement is an approximation of leave-one-out cross validation [$LOO_{CV}$\; @Vehtari_etal_2017].
+
+**BMA** weights are based on a leave-one-out cross validation approximation [@Vehtari_etal_2017]. This provides a **fit measure for each data point**. 
 :::
 </br>
 
 ::: {layout-ncol="2"}
 
 :::col
+
+
 ::: {.fragment .fade-in fragment-index="4"}
+<center>
+
+Calculating model weights:
+
+
+- Test level weights 
+
+::: {.fragment .fade-in fragment-index="5"}
+- Item level weights? 
+:::
+
+</center>
+:::
+
+:::
+
+:::col
+::: {.fragment .fade-in fragment-index="6"}
 
 **Two type of weights [@Yao_etal_2018]:**
 
@@ -182,26 +204,9 @@ The core of the **BMA** approach we implement is an approximation of leave-one-o
 :::
 :::
 
-:::col
-
-
-::: {.fragment .fade-in fragment-index="5"}
-<center>
-
-Calculating model weights:
-
-
-- Test level weights 
-
-::: {.fragment .fade-in fragment-index="6"}
-- Item level weights? 
-:::
-
-</center>
-:::
 
 :::
-:::
+
 
 ## Averaging Predicted Probability of Keyed Responses
 
@@ -211,9 +216,10 @@ Calculating model weights:
 :::col
 ::: {.fragment .fade-in fragment-index="1"}
 
-<center> **Ideal Scenario: theoretical quantiles** </center>
+<center> **Theoretical quantiles** </center>
 
-Ultimately, one would like to get the best possible estimate of $P(Y = 1|\theta)$ by averaging along the $\theta$ continuum.
+estimate $P(Y = 1|\theta)$ by averaging along a common $\theta$ continuum. Assumes a common $\theta$ scale across models.
+ 
 ![](images/avg_plot.png)
 
 :::
@@ -222,11 +228,9 @@ Ultimately, one would like to get the best possible estimate of $P(Y = 1|\theta)
 :::col
 ::: {.fragment .fade-in fragment-index="2"}
 
-<center> **Reality: empirical quantiles** </center>
+<center> **Empirical quantiles** </center>
 
-However, the same person will get a different $\theta$ depending on the model that is fit to the data.  
-
-</br>
+estimate $P(Y = 1|\theta)$ by averaging along a common *empirical* $\theta$ continuum. Can accommodate different $\theta$ scales.
 
 ![](images/CLL_NLL.png){fig-align="center" width=90%}
 
@@ -320,7 +324,7 @@ Most data generating condition purposely introduced some type of model misspecif
 ::: {.fragment .fade-in fragment-index="6" .absolute bottom=0 left=0}
 We will compare the performance of model selection (MS), test averaging (TA), item averaging (IA), and kernel smoothing IRT (KS):
 
-$$RMSE_{q} = \sqrt{\frac{1}{100}\sum_{r=1}^{100}\frac{1}{I}\sum_{i = 1}^{I}[P_r(y_{in} = 1|\color{red}{\theta_{q}}) - \hat{P}_r(y_{in} = 1|\tilde{\theta}_{q})]^{2}}$$
+$$RMSE_{q} = \sqrt{\frac{1}{100}\sum_{r=1}^{100}\frac{1}{I}\sum_{i = 1}^{I}[P_r(y_{in} = 1|\theta_{q}) - \hat{P}_r(y_{in} = 1|\tilde{\theta}_{q})]^{2}}$$
 :::
 
 ## Distribution of Test and Item Weights 
@@ -380,6 +384,47 @@ $$RMSE_{q} = \sqrt{\frac{1}{100}\sum_{r=1}^{100}\frac{1}{I}\sum_{i = 1}^{I}[P_r(
 
 </br>
 
+## Acknowledgement & Contacts
+
+::: {layout-ncol="2"}
+:::col
+
+
+<center>
+**Acknowledgements**
+</center>
+
+- **My advisor:** Leah Feuerstahler ([leah\@fordham.edu](mailto:leah@fordham.edu))
+
+</br>
+</br>
+
+- Fordham's [High Performance Computing team](https://www.fordham.edu/academics/research/office-of-research/initiatives-and-infrastructure/internal-funding-opportunities/high-performance-computing/), especially Andrew Angelopoulos ([aangelopoulos\@fordham.edu](mailto:aangelopoulos@fordham.edu))
+
+![](images/HPC_image.png){width=90%}
+
+:::
+
+:::col
+
+<center>
+**Contact and slides link**
+</center>
+
+- my email: [fsetti\@fordham.edu](mailto:fsetti@fordham.edu)
+
+</br>
+
+<center>
+
+Slides QR code:
+
+![](images/qr_code_presentation.svg){}
+
+</center>
+
+:::
+:::
 
 
 ## References

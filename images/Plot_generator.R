@@ -11,6 +11,9 @@ loadfonts(device="win")
 par(family = "Times New Roman")
 
 
+source("C:/Users/fabio/Dropbox/Work/Useful R scripts/GGplot_defaults.R")
+
+
 ###### Define other functions and theta ######
 
 
@@ -96,7 +99,96 @@ ggsave("NLL_vs_3plU.png",
        width = 7, height = 4.5, dpi = 300, units = "in")
 
 
-####### Stukel fig#####
+####### Empirical quantiles Viz #######
+
+norm_decile <-  ggplot()+
+   stat_function(fun = plogis,
+                 color = "red") +
+   scale_x_continuous(limits = c(-3, 3),
+                      expand = c(0, 0)) +
+   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
+   geom_segment(aes(x = qnorm(c(seq(.1, .9, by = .1))),
+                    y = 0,
+                    xend = qnorm(c(seq(.1, .9, by = .1))),
+                    yend = plogis(qnorm(c(seq(.1, .9, by = .1))))),
+                color = "red",
+                linetype = 2) +
+   geom_segment(aes(x = qnorm(c(seq(.1, .9, by = .1))),
+                    y = plogis(qnorm(c(seq(.1, .9, by = .1)))),
+                    xend = -3 ,
+                    yend = plogis(qnorm(c(seq(.1, .9, by = .1))))),
+                color = "red",
+                linetype = 2) +   
+   xlab("Deciles of Normal Distribution") +
+   theme(text = element_text(colour = "black"),
+         legend.position="bottom",
+         legend.title.position = "top",
+         legend.title = element_text(hjust = 0.5),
+         strip.text = element_text(face = "bold"),
+         strip.background = element_blank(),
+         panel.background = element_rect(fill='transparent'), 
+         plot.background = element_rect(fill='transparent', color=NA), 
+         panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(), 
+         legend.background = element_rect(fill='transparent'),
+         axis.text = element_text(family = "Times New Roman", 
+                                  colour = "black"))+
+   guides(color = guide_legend(title = NULL),
+          shape = guide_legend(title = NULL))
+
+print(norm_decile)
+
+
+ggsave("norm_decile.png", 
+       norm_decile,
+       width = 7, height = 4.5, dpi = 300, units = "in")
+
+
+
+library(ExtDist)
+
+
+gumbel_decile <- ggplot()+
+   stat_function(fun = pGumbel,
+                 color = "blue") +
+   scale_x_continuous(limits = c(-3, 3),
+                      expand = c(0, 0)) +
+   scale_y_continuous(limits = c(0,1),
+                      expand = c(0, 0)) +
+   geom_segment(aes(x = qnorm(c(seq(.1, .9, by = .1))),
+                    y = 0,
+                    xend = qnorm(c(seq(.1, .9, by = .1))),
+                    yend = pGumbel(qnorm(c(seq(.1, .9, by = .1))))),
+                linetype = 2,
+                color = "blue") +
+   xlab("Deciles of Gumbel Distribution") +
+   theme(text = element_text(colour = "black"),
+         legend.position="bottom",
+         legend.title.position = "top",
+         axis.title.y = element_blank(),
+         legend.title = element_text(hjust = 0.5),
+         strip.text = element_text(face = "bold"),
+         strip.background = element_blank(),
+         panel.background = element_rect(fill='transparent'), 
+         plot.background = element_rect(fill='transparent', color=NA), 
+         panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(), 
+         legend.background = element_rect(fill='transparent'),
+         axis.text = element_text(family = "Times New Roman", 
+                                  colour = "black"))+
+   guides(color = guide_legend(title = NULL),
+          shape = guide_legend(title = NULL))
+
+print(gumbel_decile)
+
+
+ggsave("gumbel_decile.png", 
+       gumbel_decile,
+       width = 7, height = 4.5, dpi = 300, units = "in")
+
+
+
+####### Stukel fig #######
 
 
 Stukel_fig <- ggplot(data.frame(x = theta),aes(x = x)) +
